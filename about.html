@@ -1,13 +1,168 @@
-<h1>درباره ترنم اترک</h1>
-<p>
-  گروه فرهنگی هنری ترنم اترک، یک مرکز تخصصی تولید محتوا و رسانه است
-  که با رویکردی خلاقانه و هدفمند، مسیر ایده تا اجرا را برای برندها و مجموعه‌ها
-  همراهی می‌کند.
-</p>
-<p>
-  شعار ما این است: «جایی که خلاقیت به هدف تبدیل می‌شود»
-</p>
-<p>
-  ما در حوزه‌های تولید محتوای صوتی، تصویری و تبلیغاتی فعالیت می‌کنیم و
-  تلاش می‌کنیم پیام برند شما را به شکلی اثرگذار و حرفه‌ای به مخاطبان منتقل کنیم.
-</p>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>درباره ترنم اترک</title>
+  
+  <!-- وارد کردن فونت وزیرمتن -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ریست کردن فواصل پیش‌فرض */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+
+    body {
+      /* بک‌گراند هنری و متحرک کاملاً هماهنگ با صفحه اصلی */
+      background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* باکس شیشه‌ای مرکزی بزرگ */
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* تیتر اصلی با ابعاد بزرگ و گرادینت صورتی/سفید ملایم */
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff7f3 0%, #f2d9d2 45%, #e8c7d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 35px;
+      text-shadow: 0 4px 20px rgba(232, 199, 208, 0.15);
+    }
+
+    /* متون اصلی داخل باکس */
+    p {
+      font-size: 1.15rem;
+      line-height: 2;
+      color: #cbd5e1;
+      margin-bottom: 24px;
+      text-align: justify;
+      text-align-last: center; /* تراز کردن خطوط و متمرکز نشان دادن پاراگراف */
+      font-weight: 300;
+    }
+
+    /* استایل اختصاصی برای شعار مجموعه */
+    .slogan {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fce7f3;
+      background: rgba(232, 199, 208, 0.07);
+      border-right: 4px solid #e8c7d0;
+      border-left: 4px solid #e8c7d0;
+      padding: 15px 25px;
+      margin: 35px auto;
+      max-width: 90%;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* دکمه بازگشت شیک */
+    .btn-back {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 40px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(232, 199, 208, 0.3);
+      border-radius: 30px;
+      color: #e8c7d0;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-back:hover {
+      background: linear-gradient(135deg, rgba(232, 199, 208, 0.2) 0%, rgba(232, 199, 208, 0.05) 100%);
+      border-color: #e8c7d0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(232, 199, 208, 0.25);
+    }
+
+    /* ریسپانسیو برای موبایل */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+      }
+      .container {
+        padding: 30px 20px;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+      .slogan {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- هدر اصلی بزرگ در مرکز -->
+    <h1>درباره ترنم اترک</h1>
+    
+    <!-- توضیحات اول -->
+    <p>
+      گروه فرهنگی هنری <strong>ترنم اترک</strong>، یک مجموعه خلاق و مرکز تخصصی تولید محتوا و رسانه است. ما با همراهی تیمی مجرب و متخصص، آماده‌ایم تا در تمام مراحل خلق ایده‌ها، پیاده‌سازی و ساخت نهایی آثار صوتی و تصویری در کنار برند، سازمان یا کسب‌وکار شما باشیم.
+    </p>
+    
+    <!-- شعار مجموعه -->
+    <div class="slogan">
+      «جایی که خلاقیت به هدف تبدیل می‌شود»
+    </div>
+    
+    <!-- توضیحات دوم -->
+    <p>
+      هدف ما، ارتقای استانداردهای تولیدات صوتی، تصویری و تبلیغاتی و ایجاد ارزش افزوده واقعی برای پیام برند شماست. تعهد به کیفیت، نوآوری مستمر و تمرکز بر جزئیات، ویژگی‌هایی است که هویت هنری ما را در بازار متمایز می‌کند.
+    </p>
+    
+    <!-- دکمه بازگشت -->
+    <a href="index.html" class="btn-back">بازگشت به صفحه اصلی</a>
+  </div>
+
+</body>
+</html>
