@@ -5,14 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>استودیو ترنم اترک</title>
     <style>
+        /* فونت یکان - برای زیباتر شدن ظاهر فارسی */
         @font-face { font-family: 'Yekan'; src: url('https://cdn.fontcdn.ir/Font/Persian/Yekan/Yekan.woff2') format('woff2'); }
-        body { background: #0f0f0f; color: #fff; font-family: 'Yekan', Tahoma, sans-serif; text-align: center; margin: 0; padding: 40px 20px; }
-        .hero { margin-bottom: 40px; }
-        h1 { font-size: 2em; color: #ff3e3e; margin-bottom: 10px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; max-width: 700px; margin: 0 auto; }
-        .btn { padding: 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 15px; cursor: pointer; transition: 0.4s; font-size: 1.1em; color: #eee; }
-        .btn:hover { background: #ff3e3e; border-color: #ff3e3e; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,62,62,0.2); }
-        .footer { margin-top: 50px; color: #555; font-size: 0.9em; }
+        
+        body { 
+            background: #0a0a0a; /* رنگ پس‌زمینه تیره‌تر و حرفه‌ای‌تر */
+            color: #fff; 
+            font-family: 'Yekan', Tahoma, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 40px 20px; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero { margin-bottom: 50px; }
+        
+        /* تغییرات برای عنوان "ترنم اترک" */
+        h1 { 
+            font-size: 3.5em; /* بزرگتر شدن عنوان */
+            color: #4CAF50; /* رنگ سبز روشن و گیرا (قابل تغییر به رنگ دلخواه شما) */
+            margin-bottom: 5px; 
+            text-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* اضافه کردن یک هاله نوری ملایم */
+            letter-spacing: 2px; /* فاصله بیشتر بین حروف برای زیبایی */
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            color: #aaa;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; /* افزایش فاصله دکمه‌ها */
+            max-width: 800px; /* پهن‌تر شدن ستون دکمه‌ها */
+            margin: 0 auto; 
+            padding: 0 10px;
+        }
+        
+        .btn { 
+            padding: 25px; /* بزرگتر شدن اندازه دکمه‌ها */
+            background: #1c1c1c; 
+            border: 1px solid #333; 
+            border-radius: 18px; /* کمی گردتر شدن لبه‌ها */
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            font-size: 1.2em; 
+            color: #eee;
+            text-decoration: none; /* برای وقتی که دکمه‌ها را به لینک تبدیل می‌کنیم */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover { 
+            background: #4CAF50; /* رنگ اصلی استودیو روی هاور */
+            border-color: #4CAF50; 
+            transform: translateY(-3px) scale(1.02); /* افکت سه‌بعدی نرم */
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4); 
+            color: #0a0a0a; /* رنگ نوشته روی هاور تیره می‌شود */
+        }
+
+        .footer { 
+            margin-top: 50px; 
+            color: #777; 
+            font-size: 0.85em; 
+        }
+        
+        /* برای موبایل‌ها */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5em; }
+            .btn { padding: 18px; font-size: 1.1em; }
+        }
     </style>
 </head>
 <body>
@@ -22,12 +92,13 @@
     </div>
     
     <div class="grid">
-        <div class="btn">🎬 موشن گرافیک</div>
-        <div class="btn">🎨 طراحی گرافیک و پوستر</div>
-        <div class="btn">🎙️ تولید پادکست و صدا</div>
-        <div class="btn">🎤 دوبلاژ و نریشن</div>
-        <div class="btn">📹 تدوین تیزر تبلیغاتی</div>
-        <div class="btn">📞 سفارش پروژه / تماس با ما</div>
+        <!-- برای هر دکمه باید لینک‌دهی (href) را بعداً تعیین کنید. -->
+        <a href="#" class="btn">🎬 موشن گرافیک</a>
+        <a href="#" class="btn">🎨 طراحی گرافیک و پوستر</a>
+        <a href="#" class="btn">🎙️ تولید پادکست و صدا</a>
+        <a href="#" class="btn">🎤 دوبلاژ و نریشن</a>
+        <a href="#" class="btn">✂️ تدوین تیزر تبلیغاتی</a>
+        <a href="mailto:your_email@example.com" class="btn">📞 سفارش پروژه / تماس با ما</a>
     </div>
 
     <div class="footer">
