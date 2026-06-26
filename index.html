@@ -3,106 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استودیو ترنم اترک</title>
+    <title>استودیو خلاق ترنم اترک</title>
+    <!-- وارد کردن فونت فوق‌العاده زیبای وزیر‌متن از گوگل‌فونتز -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        /* فونت یکان - برای زیباتر شدن ظاهر فارسی */
-        @font-face { font-family: 'Yekan'; src: url('https://cdn.fontcdn.ir/Font/Persian/Yekan/Yekan.woff2') format('woff2'); }
-        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body { 
-            background: #0a0a0a; /* رنگ پس‌زمینه تیره‌تر و حرفه‌ای‌تر */
-            color: #fff; 
-            font-family: 'Yekan', Tahoma, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding: 40px 20px; 
+            background-color: #09090b; /* مشکی عمیق و مدرن */
+            color: #f4f4f5; 
+            font-family: 'Vazirmatn', sans-serif; 
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 20px;
+            overflow-x: hidden;
         }
 
-        .hero { margin-bottom: 50px; }
+        /* بخش هدر سایت */
+        .hero { 
+            text-align: center;
+            margin-bottom: 60px; 
+            animation: fadeIn 1s ease-out;
+        }
         
-        /* تغییرات برای عنوان "ترنم اترک" */
+        /* استایل خاص و بزرگ برای نام ترنم اترک */
         h1 { 
-            font-size: 3.5em; /* بزرگتر شدن عنوان */
-            color: #4CAF50; /* رنگ سبز روشن و گیرا (قابل تغییر به رنگ دلخواه شما) */
-            margin-bottom: 5px; 
-            text-shadow: 0 0 15px rgba(76, 175, 80, 0.5); /* اضافه کردن یک هاله نوری ملایم */
-            letter-spacing: 2px; /* فاصله بیشتر بین حروف برای زیبایی */
+            font-size: 4.5em; 
+            font-weight: 900;
+            /* گرادینت رنگی سرخ تیره تا روشن */
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px; 
+            letter-spacing: -1px;
+            /* هاله نوری ملایم پشت متن */
+            filter: drop-shadow(0 0 20px rgba(255, 75, 43, 0.3));
         }
         
         .hero p {
-            font-size: 1.2em;
-            color: #aaa;
-            margin-top: 0;
-            margin-bottom: 25px;
+            font-size: 1.25em;
+            color: #a1a1aa;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
+        /* شبکه کارت‌ها */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; /* افزایش فاصله دکمه‌ها */
-            max-width: 800px; /* پهن‌تر شدن ستون دکمه‌ها */
-            margin: 0 auto; 
-            padding: 0 10px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 24px; 
+            max-width: 1000px; 
+            width: 100%;
+            margin: 0 auto;
+            animation: slideUp 1s ease-out;
         }
         
-        .btn { 
-            padding: 25px; /* بزرگتر شدن اندازه دکمه‌ها */
-            background: #1c1c1c; 
-            border: 1px solid #333; 
-            border-radius: 18px; /* کمی گردتر شدن لبه‌ها */
+        /* استایل کارت‌های شیشه‌ای و مدرن */
+        .card { 
+            background: rgba(20, 20, 23, 0.7); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            padding: 30px 25px;
             cursor: pointer; 
-            transition: all 0.3s ease; 
-            font-size: 1.2em; 
-            color: #eee;
-            text-decoration: none; /* برای وقتی که دکمه‌ها را به لینک تبدیل می‌کنیم */
+            text-decoration: none;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn:hover { 
-            background: #4CAF50; /* رنگ اصلی استودیو روی هاور */
-            border-color: #4CAF50; 
-            transform: translateY(-3px) scale(1.02); /* افکت سه‌بعدی نرم */
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4); 
-            color: #0a0a0a; /* رنگ نوشته روی هاور تیره می‌شود */
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: right;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .footer { 
-            margin-top: 50px; 
-            color: #777; 
-            font-size: 0.85em; 
+        /* خط درخشان بسیار ظریف بالای کارت هنگام هاور */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        /* برای موبایل‌ها */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5em; }
-            .btn { padding: 18px; font-size: 1.1em; }
+        /* افکت هاور روی کارت‌ها */
+        .card:hover { 
+            transform: translateY(-8px);
+            background: rgba(28, 28, 35, 0.9);
+            border-color: rgba(255, 75, 43, 0.4); 
+            box-shadow: 0 15px 35px rgba(255, 75, 43, 0.1); 
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* آیکون داخل کارت */
+        .card-icon {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+        
+        /* عنوان خدمات */
+        .card-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover .card-title {
+            color: #ff4b2b; /* تغییر رنگ عنوان به قرمز ملایم هنگام قرار گرفتن موس */
+        }
+        
+        /* توضیحات کوتاه خدمات */
+        .card-desc {
+            font-size: 0.95em;
+            color: #71717a;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* فوتر سایت */
+        .footer { 
+            margin-top: 80px; 
+            color: #52525b; 
+            font-size: 0.9em; 
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* واکنش‌گرایی برای موبایل */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.2em; }
+            .grid { grid-template-columns: 1fr; }
+            body { padding: 40px 15px; }
+            .card { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- بخش معرفی -->
     <div class="hero">
         <h1>ترنم اترک</h1>
-        <p>استودیوی خلاق رسانه‌ای و تولید محتوا</p>
+        <p>استودیوی خلاق رسانه‌ای، تبلیغات و تولید محتوای دیجیتال</p>
     </div>
     
+    <!-- شبکه خدمات استودیو -->
     <div class="grid">
-        <!-- برای هر دکمه باید لینک‌دهی (href) را بعداً تعیین کنید. -->
-        <a href="#" class="btn">🎬 موشن گرافیک</a>
-        <a href="#" class="btn">🎨 طراحی گرافیک و پوستر</a>
-        <a href="#" class="btn">🎙️ تولید پادکست و صدا</a>
-        <a href="#" class="btn">🎤 دوبلاژ و نریشن</a>
-        <a href="#" class="btn">✂️ تدوین تیزر تبلیغاتی</a>
-        <a href="mailto:your_email@example.com" class="btn">📞 سفارش پروژه / تماس با ما</a>
+        
+        <!-- موشن گرافیک -->
+        <a href="#" class="card">
+            <div class="card-icon">🎬</div>
+            <div class="card-title">موشن گرافیک</div>
+            <div class="card-desc">طراحی متحرک دو‌بعدی و سه‌بعدی، لوگوموشن و انیمیشن‌های تبلیغاتی خلاقانه.</div>
+        </a>
+
+        <!-- طراحی گرافیک -->
+        <a href="#" class="card">
+            <div class="card-icon">🎨</div>
+            <div class="card-title">طراحی گرافیک و پوستر</div>
+            <div class="card-desc">خلق هویت بصری، پوسترهای هنری، اینفوگرافیک‌های جذاب و طرح‌های مدرن تجاری.</div>
+        </a>
+
+        <!-- پادکست و صدا -->
+        <a href="#" class="card">
+            <div class="card-icon">🎙️</div>
+            <div class="card-title">تولید پادکست و صدا</div>
+            <div class="card-desc">ضبط حرفه‌ای، تدوین صوتی، افکت‌گذاری و مهندسی صدای پادکست‌ها و برنامه‌های صوتی.</div>
+        </a>
+
+        <!-- دوبلاژ و نریشن -->
+        <a href="#" class="card">
+            <div class="card-icon">🎤</div>
+            <div class="card-title">دوبلاژ و نریشن</div>
+            <div class="card-desc">صداپیشگی حرفه‌ای برای تیزرهای تبلیغاتی، فیلم‌های مستند، دوبله انیمیشن و کتاب‌های صوتی.</div>
+        </a>
+
+        <!-- تیزر تبلیغاتی -->
+        <a href="#" c="card">
+            <div class="card-icon">✂️</div>
+            <div class="card-title">تدوین و تیزر تبلیغاتی</div>
+            <div class="card-desc">ویرایش حرفه‌ای ویدیو، اصلاح رنگ و نور، افکت‌های ویژه و ساخت تیزرهای اینستاگرامی.</div>
+        </a>
+
+        <!-- سفارش پروژه -->
+        <a href="#" class="card">
+            <div class="card-icon">🤝</div>
+            <div clas="card-title">همکاری و سفارش پروژه</div>
+            <div class="card-desc">بیایید ایده‌های خلاقانه شما را با هم بسازیم. جهت مشاوره و استعلام قیمت با ما در ارتباط باشید.</div>
+        </a>
+
     </div>
 
+    <!-- فوتر -->
     <div class="footer">
-        <p>طراحی و اجرا توسط استودیو ترنم اترک © ۲۰۲۶</p>
-    </div>
-</body>
-</html>
+        <p>تمامی حقوق مادی و معنوی محفوظ و 
