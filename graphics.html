@@ -1,28 +1,154 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>طراحی گرافیک | ترنم اترک</title>
+  <title>Graphic Design Gallery | Taranom Atrk</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    body { background: #020617; color: #f1f5f9; font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 20px; }
-    .filter-buttons { text-align: center; margin: 30px 0; }
-    .filter-buttons button { padding: 10px 25px; margin: 5px; border: 1px solid #e8c7d0; border-radius: 25px; background: transparent; color: #e8c7d0; cursor: pointer; transition: 0.3s; }
-    .filter-buttons button.active { background: #e8c7d0; color: #020617; }
+    body {
+      background: #020617;
+      color: #f1f5f9;
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+    }
+    .header { text-align: center; margin-bottom: 50px; }
+    h1 { color: #e8c7d0; font-size: 2.5em; }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .filter-buttons button {
+      padding: 10px 25px;
+      margin: 5px;
+      border: 1px solid #e8c7d0;
+      border-radius: 25px;
+      background: transparent;
+      color: #e8c7d0;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1.1em;
+    }
+    .filter-buttons button:hover, .filter-buttons button.active {
+      background: #e8c7d0;
+      color: #020617;
+    }
+
+    .gallery-grid {
+      display: grid;
+      /* حداقل عرض 250 پیکسل، حداکثر عرض 1fr */
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative; /* برای موقعیت‌دهی دکمه‌ها یا توضیحات داخل آیتم */
+      background-color: #1e293b; /* رنگ زمینه */
+      border-radius: 15px;
+      overflow: hidden; /* برای اینکه افکت‌های هاور از کادر بیرون نزند */
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 2px solid rgba(232, 199, 208, 0.1);
+      aspect-ratio: 3 / 4; /* نسبت تصویر (عرض به ارتفاع) - می‌توانید تغییر دهید */
+    }
+
+    .gallery-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(''); /* اینجا تصویر قرار می‌گیرد */
+        background-size: contain; /* تصویر را بدون کراپ شدن نمایش می‌دهد */
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 0.5s ease;
+    }
     
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-    
-    .gallery-item { height: 350px; background: #1e293b; border-radius: 15px; overflow: hidden; border: 2px solid #334155; transition: 0.4s; }
-    
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-    
-    /* بزرگ‌نمایی هنگام هاور */
-    .gallery-item:hover { transform: scale(1.05); border-color: #e8c7d0; box-shadow: 0 0 20px rgba(232, 199, 208, 0.3); }
-    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-item:hover::before {
+        transform: scale(1.1); /* زوم کردن تصویر */
+    }
+
+    .footer-nav {
+      text-align: center;
+      margin-top: 50px;
+      padding-bottom: 30px;
+    }
+    .btn-back {
+      color: #e8c7d0;
+      text-decoration: none;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: 1px solid #e8c7d0;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .btn-back:hover {
+      background: #e8c7d0;
+      color: #020617;
+    }
+
+    /* استایل برای Modal (پنجره تمام صفحه) */
+    .modal {
+      display: none; /* مخفی است به طور پیش‌فرض */
+      position: fixed; /* ثابت در صفحه */
+      z-index: 1000; /* بالای همه عناصر */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto; /* فعال کردن اسکرول در صورت نیاز */
+      background-color: rgba(2, 6, 23, 0.95); /* پس‌زمینه تاریک */
+    }
+    .modal-content {
+      position: relative;
+      margin: 5% auto; /* مرکز کردن */
+      width: 80%;
+      max-width: 1000px; /* حداکثر عرض */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh; /* ارتفاع 85% صفحه */
+    }
+    .modal-content img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain; /* نمایش کامل تصویر بدون کراپ */
+    }
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: #e8c7d0;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .close-button:hover, .close-button:focus {
+      color: #fff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
+
+  <div class="header">
+    <h1>نمونه کارهای گرافیک</h1>
+  </div>
 
   <div class="filter-buttons">
       <button class="active" onclick="filter('all', this)">همه</button>
@@ -31,19 +157,65 @@
   </div>
 
   <div class="gallery-grid" id="grid">
-    <!-- ۳۰ پوستر -->
+    <!-- تصاویر پوستر -->
     <script>
-      for(let i=1; i<=30; i++) {
-        document.write(`<div class="gallery-item" data-category="poster"><img src="images/poster/poster${i}.jpg" alt="پوستر"></div>`);
+      const posters = [
+        "poster1.jpg", "poster2.jpg", "poster3.jpg", "poster4.jpg", "poster5.jpg",
+        "poster6.jpg", "poster7.jpg", "poster8.jpg", "poster9.jpg", "poster10.jpg",
+        "poster11.jpg", "poster12.jpg", "poster13.jpg", "poster14.jpg", "poster15.jpg",
+        "poster16.jpg", "poster17.jpg", "poster18.jpg", "poster19.jpg", "poster20.jpg",
+        "poster21.jpg", "poster22.jpg", "poster23.jpg", "poster24.jpg", "poster25.jpg",
+        "poster26.jpg", "poster27.jpg", "poster28.jpg", "poster29.jpg", "poster30.jpg",
+        // یک فایل اینجا کم بود: poster-hamyar.jpg
+        "poster-hamyar.jpg" 
+      ];
+      
+      // تصاویر اینفوگرافیک
+      const infographics = [
+        "posterinf1.jpg", "posterinf2.jpg", "posterinf3.jpg", "posterinf4.jpg", "posterinf5.jpg",
+        "posterinf6.jpg", "posterinf7.jpg", "posterinf8.jpg", "posterinf9.jpg", "posterinf10.jpg",
+        "posterinf11.jpg", "posterinf12.jpg"
+      ];
+
+      function generateGalleryItems(items, category) {
+        let html = '';
+        items.forEach(item => {
+          // مسیر درست فایل را بر اساس پوشه تنظیم می‌کنیم
+          let path = category === 'poster' ? `images/poster/${item}` : `images/poster-infographic/${item}`;
+          // برای فایل poster-hamyar.jpg اگر در پوشه poster هست:
+          if (item === "poster-hamyar.jpg" && category === 'poster') {
+              path = `images/poster/${item}`;
+          }
+          
+          html += `
+            <div class="gallery-item" data-category="${category}" data-full-src="${path}" data-filename="${item}">
+              <div style="--image-url: url('${path}');" class="item-background"></div>
+            </div>`;
+        });
+        return html;
       }
-      // ۱۲ اینفوگرافیک
-      for(let i=1; i<=12; i++) {
-        document.write(`<div class="gallery-item" data-category="infographic"><img src="images/پوسترهای آب/infographic${i}.jpg" alt="اینفوگرافیک"></div>`);
-      }
+      
+      document.getElementById('grid').innerHTML = 
+        generateGalleryItems(posters, 'poster') + 
+        generateGalleryItems(infographics, 'infographic');
     </script>
   </div>
 
+  <!-- دکمه بازگشت به صفحه اصلی -->
+  <div class="footer-nav">
+    <a href="index.html" class="btn-back">بازگشت به منوی اصلی</a>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="imageModal" class="modal">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Full size image">
+    </div>
+  </div>
+
   <script>
+    // فیلتر کردن گالری
     function filter(cat, btn) {
       document.querySelectorAll('.filter-buttons button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -51,6 +223,44 @@
         item.style.display = (cat === 'all' || item.dataset.category === cat) ? 'block' : 'none';
       });
     }
-  </script>
-</body>
-</html>
+
+    // نمایش Modal هنگام کلیک روی آیتم گالری
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const imgSrc = item.dataset.fullSrc;
+        const modalImg = document.getElementById('modalImage');
+        modalImg.src = imgSrc;
+        document.getElementById('imageModal').style.display = 'block';
+      });
+    });
+
+    // بستن Modal
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+      document.getElementById('modalImage').src = ''; // پاک کردن سورس تصویر قبلی
+    }
+
+    // بستن Modal با کلیک خارج از تصویر یا دکمه Esc
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('imageModal')) {
+        closeModal();
+      }
+    }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && document.getElementById('imageModal').style.display === 'block') {
+            closeModal();
+        }
+    });
+
+    // اعمال استایل پس‌زمینه برای آیتم‌های گالری
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        const imgUrl = item.dataset.fullSrc;
+        // برای آیتم‌های گالری، از استایل inline برای background-image استفاده می‌کنیم
+        // این روش به ما اجازه می‌دهد تا CSS را برای حالت hover ساده‌تر نگه داریم
+        item.style.backgroundImage = `url('${imgUrl}')`;
+        item.style.backgroundSize = 'contain';
+        item.style.backgroundPosition = 'center';
+        item.style.backgroundRepeat = 'no-repeat';
+    });
+
+    // برای 
