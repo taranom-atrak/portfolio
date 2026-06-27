@@ -3,87 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>نمونه کارهای گرافیک | ترنم اترک</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <title>طراحی گرافیک | ترنم اترک</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    body { background: #020617; color: #f1f5f9; font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 40px 20px; }
-    .header { text-align: center; margin-bottom: 50px; }
-    h1 { color: #e8c7d0; }
-
-    /* استایل گالری برای یکسان‌سازی ابعاد */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      position: relative;
-      background: #1e293b;
-      border-radius: 15px;
-      overflow: hidden; /* این باعث می‌شود زوم از کادر بیرون نزند */
-      height: 350px; /* ارتفاع ثابت برای همه */
-      cursor: pointer;
-      border: 2px solid rgba(232, 199, 208, 0.2);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* تصویر را بدون به هم ریختن ابعاد، داخل کادر فیت می‌کند */
-      transition: transform 0.5s ease;
-    }
-
-    /* افکت زوم هنگام هاور */
-    .gallery-item:hover img {
-      transform: scale(1.15);
-    }
-
-    .filter-buttons { text-align: center; margin-bottom: 40px; }
+    body { background: #020617; color: #f1f5f9; font-family: 'Vazirmatn', sans-serif; margin: 0; padding: 20px; }
+    .filter-buttons { text-align: center; margin: 30px 0; }
     .filter-buttons button { padding: 10px 25px; margin: 5px; border: 1px solid #e8c7d0; border-radius: 25px; background: transparent; color: #e8c7d0; cursor: pointer; transition: 0.3s; }
-    .filter-buttons button:hover, .filter-buttons button.active { background: #e8c7d0; color: #020617; }
-
-    .footer-nav { text-align: center; margin-top: 50px; }
-    .btn-back { color: #e8c7d0; text-decoration: none; border-bottom: 1px solid; }
+    .filter-buttons button.active { background: #e8c7d0; color: #020617; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    
+    .gallery-item { height: 350px; background: #1e293b; border-radius: 15px; overflow: hidden; border: 2px solid #334155; transition: 0.4s; }
+    
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+    
+    /* بزرگ‌نمایی هنگام هاور */
+    .gallery-item:hover { transform: scale(1.05); border-color: #e8c7d0; box-shadow: 0 0 20px rgba(232, 199, 208, 0.3); }
+    .gallery-item:hover img { transform: scale(1.1); }
   </style>
 </head>
 <body>
 
-  <div class="header">
-    <h1>نمونه کارهای گرافیک</h1>
-  </div>
-
   <div class="filter-buttons">
-      <button class="active" onclick="filterGallery('all')">همه</button>
-      <button onclick="filterGallery('poster')">پوستر</button>
-      <button onclick="filterGallery('infographic')">اینفوگرافیک</button>
+      <button class="active" onclick="filter('all', this)">همه</button>
+      <button onclick="filter('poster', this)">پوستر</button>
+      <button onclick="filter('infographic', this)">اینفوگرافیک</button>
   </div>
 
-  <div class="gallery-grid">
-    <!-- بخش پوسترهای معمولی -->
-    <!-- بر اساس فایل‌های شما: poster 1.jpg, poster 2.jpg و غیره -->
-    <div class="gallery-item" data-category="poster"><img src="images/poster/poster 1.jpg" alt="پوستر"></div>
-    <div class="gallery-item" data-category="poster"><img src="images/poster/poster 2.jpg" alt="پوستر"></div>
-    <div class="gallery-item" data-category="poster"><img src="images/poster/poster 3.jpg" alt="پوستر"></div>
-    <div class="gallery-item" data-category="poster"><img src="images/poster/poster 4.jpg" alt="پوستر"></div>
-    <!-- ... می‌توانید مابقی پوسترها را به همین ترتیب اضافه کنید ... -->
-
-    <!-- بخش اینفوگرافیک‌ها -->
-    <!-- فرض بر نام‌گذاری فایل‌ها به صورت پوستر آب ۱.jpg و غیره در پوشه پوسترهای آب -->
-    <div class="gallery-item" data-category="infographic"><img src="images/پوسترهای آب/پوستر آب ۱.jpg" alt="اینفوگرافیک"></div>
-    <div class="gallery-item" data-category="infographic"><img src="images/پوسترهای آب/پوستر آب ۲.jpg" alt="اینفوگرافیک"></div>
-    <div class="gallery-item" data-category="infographic"><img src="images/پوسترهای آب/پوستر آب ۳.jpg" alt="اینفوگرافیک"></div>
+  <div class="gallery-grid" id="grid">
+    <!-- ۳۰ پوستر -->
+    <script>
+      for(let i=1; i<=30; i++) {
+        document.write(`<div class="gallery-item" data-category="poster"><img src="images/poster/poster${i}.jpg" alt="پوستر"></div>`);
+      }
+      // ۱۲ اینفوگرافیک
+      for(let i=1; i<=12; i++) {
+        document.write(`<div class="gallery-item" data-category="infographic"><img src="images/پوسترهای آب/infographic${i}.jpg" alt="اینفوگرافیک"></div>`);
+      }
+    </script>
   </div>
-
-  <div class="footer-nav"><a href="index.html" class="btn-back">بازگشت به منوی اصلی</a></div>
 
   <script>
-    function filterGallery(category) {
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.style.display = (category === 'all' || item.dataset.category === category) ? 'block' : 'none';
-        });
+    function filter(cat, btn) {
+      document.querySelectorAll('.filter-buttons button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.category === cat) ? 'block' : 'none';
+      });
     }
   </script>
 </body>
