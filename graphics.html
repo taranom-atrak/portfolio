@@ -86,77 +86,132 @@
   </div>
 
   <div class="gallery-grid">
-    <!-- نمونه کار ۱: پوستر -->
+  
+    <!-- پوستر ۲۵ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/25.jpg" alt="پوستر ۲۵">
+      <img src="images/poster/پوستر ۲۵.jpg" alt="پوستر ۲۵">
       <div class="item-info">
         <h3>پوستر ۲۵</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۲: پوستر -->
+    <!-- پوستر ۱ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/1.jpg" alt="پوستر ۱">
+      <img src="images/poster/پوستر ۱.jpg" alt="پوستر ۱">
       <div class="item-info">
         <h3>پوستر ۱</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۳: پوستر -->
+    <!-- پوستر ۱.۱ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/11.jpg" alt="پوستر ۱۱">
+      <img src="images/poster/پوستر ۱.۱.jpg" alt="پوستر ۱.۱">
       <div class="item-info">
-        <h3>پوستر ۱۱</h3>
+        <h3>پوستر ۱.۱</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۴: پوستر -->
+    <!-- پوستر ۱۰ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/10.jpg" alt="پوستر ۱۰">
+      <img src="images/poster/پوستر ۱۰.jpg" alt="پوستر ۱۰">
       <div class="item-info">
         <h3>پوستر ۱۰</h3>
       </div>
     </div>
-    
-    <!-- نمونه کار ۵: پوستر - همکار گاز -->
+
+    <!-- پوستر ۱۱ - همیار گاز -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/11 - همکار گاز.jpg" alt="پوستر همکار گاز">
+      <img src="images/poster/پوستر ۱۱ - همیار گاز.jpg" alt="پوستر ۱۱ - همیار گاز">
       <div class="item-info">
-        <h3>پوستر همکار گاز</h3>
+        <h3>پوستر ۱۱ - همیار گاز</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۶: پوستر -->
+    <!-- پوستر ۱۲ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/13.jpg" alt="پوستر ۱۳">
+      <img src="images/poster/پوستر ۱۲.jpg" alt="پوستر ۱۲">
+      <div class="item-info">
+        <h3>پوستر ۱۲</h3>
+      </div>
+    </div>
+
+    <!-- پوستر ۱۳ -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/پوستر ۱۳.jpg" alt="پوستر ۱۳">
       <div class="item-info">
         <h3>پوستر ۱۳</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۷: پوستر -->
+    <!-- پوستر ۱۴ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/14.jpg" alt="پوستر ۱۴">
+      <img src="images/poster/پوستر ۱۴.jpg" alt="پوستر ۱۴">
       <div class="item-info">
         <h3>پوستر ۱۴</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۸: پوستر -->
+    <!-- پوستر ۱۵ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/15.jpg" alt="پوستر ۱۵">
+      <img src="images/poster/پوستر ۱۵.jpg" alt="پوستر ۱۵">
       <div class="item-info">
         <h3>پوستر ۱۵</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۹: پوستر -->
+    <!-- پوستر ۱۶ -->
     <div class="gallery-item" data-category="poster">
-      <img src="images/poster/16.jpg" alt="پوستر ۱۶">
+      <img src="images/poster/پوستر ۱۶.jpg" alt="پوستر ۱۶">
       <div class="item-info">
         <h3>پوستر ۱۶</h3>
       </div>
     </div>
 
-    <!-- نمونه کار ۱۰: پوستر -->
+    <!-- پوستر ۱۷ -->
     <div class="gallery-item" data-category="poster">
+      <img src="images/poster/پوستر ۱۷.jpg" alt="پوستر ۱۷">
+      <div class="item-info">
+        <h3>پوستر ۱۷</h3>
+      </div>
+    </div>
+
+    <!-- پوستر ۱۸ -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/پوستر ۱۸.jpg" alt="پوستر ۱۸">
+      <div class="item-info">
+        <h3>پوستر ۱۸</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-nav">
+    <a href="index.html" class="btn-back">بازگشت به ویترین اصلی</a>
+  </div>
+
+  <script>
+    function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        const buttons = document.querySelectorAll('.filter-buttons button');
+
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick').includes("'" + category + "'")) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            if (category === 'all' || itemCategory === category) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+  </script>
+
+</body>
+</html>
