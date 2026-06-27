@@ -1,31 +1,135 @@
-<!-- بخش جدید: توضیحات خدمات که قبل از گرید ویدیوها قرار می‌گیرد -->
-<style>
-  .service-description {
-    max-width: 900px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    border-right: 4px solid #e8c7d0; /* یک خط عمودی زیبا در سمت راست */
-    padding: 25px;
-    margin-bottom: 40px;
-    text-align: justify;
-    line-height: 1.8;
-  }
-  .service-description h2 {
-    color: #e8c7d0;
-    font-size: 1.5rem;
-    margin-top: 0;
-  }
-  .highlight {
-    color: #fff;
-    font-weight: bold;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موشن گرافیک | استودیو ترنم اترک</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); 
+      background-size: 400% 400%; 
+      animation: gradientBG 15s ease infinite; 
+      color: #f1f5f9; 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      padding: 40px 20px; 
+      font-family: 'Vazirmatn', sans-serif; 
+      margin: 0; 
+    }
+    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-<!-- این بخش را بعد از .header-section و قبل از .video-grid قرار دهید -->
-<div class="service-description">
-  <h2>🚀 جادوی حرکت در خدمت برند شما</h2>
-  <p>
-    در دنیای امروز که سرعت انتقال پیام حرف اول را می‌زند، <span class="highlight">موشن گرافیک</span> قدرتمندترین ابزار برای روایت داستان برند شماست. ما در استودیو ترنم اترک، با تلفیق هنر گرافیک و جادوی حرکت، مفاهیم پیچیده کسب‌وکار شما را به ویدیوهایی جذاب، ساده و اثرگذار تبدیل می‌کنیم. 
-    از <span class="highlight">معرفی محصولات</span> و <span class="highlight">آموزش‌های شهروندی</span> گرفته تا <span class="highlight">لوگو موشن‌های اختصاصی</span>، ما اینجا هستیم تا هویت بصری شما را به حرکت درآوریم و مخاطب را در نگاه اول مجذوب کنیم.
-  </p>
-</div>
+    .header-section { 
+      max-width: 900px; 
+      width: 100%; 
+      background: rgba(255, 255, 255, 0.04); 
+      backdrop-filter: blur(16px); 
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      border-radius: 24px; 
+      padding: 30px; 
+      text-align: center; 
+      margin-bottom: 30px; 
+    }
+
+    h1 { font-size: 2.2rem; font-weight: 900; color: #fff; margin-bottom: 10px; }
+
+    /* اصلاح بخش توضیحات */
+    .service-intro {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      border-right: 5px solid #e8c7d0;
+      padding: 20px 30px;
+      margin-bottom: 40px;
+      box-sizing: border-box;
+    }
+    .service-intro h2 { color: #e8c7d0; font-size: 1.4rem; margin-bottom: 15px; }
+    .service-intro p { 
+      line-height: 1.8; 
+      font-size: 1rem; 
+      text-align: justify; 
+      margin: 0;
+      color: #cbd5e1;
+    }
+    .text-highlight { color: #fff; font-weight: bold; border-bottom: 1px dashed #e8c7d0; }
+
+    .video-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+      gap: 25px; 
+      max-width: 1200px; 
+      width: 100%; 
+    }
+
+    .video-card { 
+      background: rgba(255, 255, 255, 0.05); 
+      border: 1px solid rgba(255, 255, 255, 0.1); 
+      border-radius: 20px; 
+      padding: 15px; 
+      transition: 0.3s; 
+    }
+    .video-card:hover { transform: translateY(-5px); border-color: #e8c7d0; }
+
+    .video-info { margin-top: 15px; text-align: right; }
+    .video-info h3 { font-size: 1.1rem; color: #e8c7d0; margin-bottom: 5px; }
+    .video-info p { font-size: 0.85rem; color: #94a3b8; margin: 0; }
+
+    .btn-back { 
+      display: inline-block; 
+      margin-top: 20px; 
+      padding: 10px 30px; 
+      border: 1px solid #e8c7d0; 
+      border-radius: 50px; 
+      color: #e8c7d0; 
+      text-decoration: none; 
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-section">
+    <h1>🎨 نمونه کارهای موشن گرافیک</h1>
+    <p>استودیو هنری ترنم اترک</p>
+    <a href="index.html" class="btn-back">← بازگشت به صفحه اصلی</a>
+  </div>
+
+  <!-- بخش توضیحات اصلاح شده -->
+  <div class="service-intro">
+    <h2>🚀 جادوی حرکت در خدمت برند شما</h2>
+    <p>
+      در دنیای امروز که سرعت انتقال پیام حرف اول را می‌زند، <span class="text-highlight">موشن گرافیک</span> قدرتمندترین ابزار برای روایت داستان برند شماست. ما در استودیو ترنم اترک، با تلفیق هنر گرافیک و جادوی حرکت، مفاهیم پیچیده کسب‌وکار شما را به ویدیوهایی جذاب تبدیل می‌کنیم. از <span class="text-highlight">معرفی محصولات</span> تا <span class="text-highlight">آموزش‌های شهروندی</span>، ما هویت بصری شما را به حرکت در می‌آوریم.
+    </p>
+  </div>
+
+  <div class="video-grid">
+    <!-- ویدیو 1 -->
+    <div class="video-card">
+      <div id="vid1"><script src="https://www.aparat.com/embed/azjtps8?data[rnddiv]=vid1&data[responsive]=yes"></script></div>
+      <div class="video-info"><h3>موشن گرافیک شماره ۱</h3><p>نمونه اجرای اختصاصی</p></div>
+    </div>
+
+    <!-- ویدیو 2 -->
+    <div class="video-card">
+      <div id="vid2"><script src="https://www.aparat.com/embed/bqo9717?data[rnddiv]=vid2&data[responsive]=yes"></script></div>
+      <div class="video-info"><h3>موشن گرافیک شماره ۲</h3><p>نمونه اجرای اختصاصی</p></div>
+    </div>
+
+    <!-- ویدیو 3 -->
+    <div class="video-card">
+      <div id="vid3"><script src="https://www.aparat.com/embed/xlgmgap?data[rnddiv]=vid3&data[responsive]=yes"></script></div>
+      <div class="video-info"><h3>موشن گرافیک شماره ۳</h3><p>نمونه اجرای اختصاصی</p></div>
+    </div>
+
+    <!-- ویدیو 4 -->
+    <div class="video-card">
+      <div id="vid4"><script src="https://www.aparat.com/embed/caqrkg4?data[rnddiv]=vid4&data[responsive]=yes"></script></div>
+      <div class="video-info"><h3>آموزش شهروندی</h3><p>شرکت گاز خراسان شمالی</p></div>
+    </div>
+  </div>
+
+</body>
+</html>
