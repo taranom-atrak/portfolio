@@ -1,27 +1,76 @@
+<!-- استفاده از الگوی ویدیویی، اما با نام‌گذاری رویدادها -->
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خدمات ترنم اترک</title>
+  <title>جشن‌ها و همایش‌ها | ترنم اترک</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body { background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; font-family: 'Vazirmatn', sans-serif; }
+    /* استایل‌های اصلی (مشابه دوبله) */
+    body { background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; font-family: 'Vazirmatn', sans-serif; margin: 0; }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    
-    .container { max-width: 800px; width: 100%; background: rgba(255, 255, 255, 0.035); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 50px; text-align: center; }
-    h1 { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #fff7f3 0%, #f2d9d2 45%, #e8c7d0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-    p { font-size: 1.1rem; line-height: 2; color: #cbd5e1; margin-bottom: 30px; }
-    
-    .btn-back { display: inline-block; padding: 12px 40px; background: rgba(255, 255, 255, 0.05); border: 1px solid #e8c7d0; border-radius: 30px; color: #e8c7d0; text-decoration: none; transition: 0.3s; }
+    .header-section { max-width: 900px; width: 100%; background: rgba(255, 255, 255, 0.035); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 40px; text-align: center; margin-bottom: 40px; }
+    h1 { font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, #fff7f3 0%, #f2d9d2 45%, #e8c7d0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; }
+    p { font-size: 1rem; color: #cbd5e1; margin-bottom: 20px; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1100px; width: 100%; }
+    .video-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 15px; transition: 0.3s ease; overflow: hidden; }
+    .video-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.08); border-color: #e8c7d0; }
+    video { width: 100%; border-radius: 12px; aspect-ratio: 16 / 9; background: #000; }
+    .video-info { margin-top: 15px; text-align: right; padding: 0 10px; }
+    .video-info h3 { font-size: 1.1rem; color: #e8c7d0; margin-bottom: 5px; }
+    .video-info p { font-size: 0.85rem; color: #94a3b8; }
+    .btn-back { display: inline-block; margin-top: 30px; padding: 10px 30px; background: rgba(255, 255, 255, 0.05); border: 1px solid #e8c7d0; border-radius: 30px; color: #e8c7d0; text-decoration: none; transition: 0.3s; }
     .btn-back:hover { background: #e8c7d0; color: #1e1b4b; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>[نام خدمت اینجا قرار بگیرد]</h1>
-    <p>[توضیحات مفصل درباره این خدمت و روش کاری ترنم اترک را اینجا بنویس]</p>
+
+  <div class="header-section">
+    <h1>🎉 جشن‌ها و همایش‌ها</h1>
+    <p>پوشش و تولید محتوای تصویری از جشن‌ها، همایش‌ها و رویدادهای مختلف.</p>
     <a href="index.html" class="btn-back">بازگشت به ویترین</a>
   </div>
+
+  <div class="video-grid" id="eventGrid">
+    <!-- ویدیوها توسط جاوااسکریپت اینجا اضافه می‌شوند -->
+  </div>
+
+  <script>
+    const eventFiles = [
+      {
+        title: "همایش بزرگ سالانه (گزارش ویدیویی)",
+        desc: "پوشش خبری ویدیویی همایش در تاریخ دی‌ماه ۱۴۰۲",
+        filename: "event1.mp4" 
+      },
+      {
+        title: "جشن نوروزی شرکت X",
+        desc: "فیلم‌برداری و ادیت جشن در اسفند ۱۴۰۲",
+        filename: "event2.mp4" 
+      }
+      // در اینجا سایر رویدادها را اضافه کنید
+    ];
+
+    const grid = document.getElementById('eventGrid');
+    // فرض می‌کنیم پوشه فایل‌ها "events" باشد
+    const path = "events/"; 
+
+    eventFiles.forEach(event => {
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.innerHTML = `
+        <video controls preload="metadata">
+          <source src="${path + event.filename}" type="video/mp4">
+          مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <div class="video-info">
+          <h3>${event.title}</h3>
+          <p>${event.desc}</p>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+
 </body>
 </html>
