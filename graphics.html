@@ -3,27 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خدمات ترنم اترک</title>
+  <title>طراحی گرافیک | ترنم اترک</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body { background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 60px 20px; font-family: 'Vazirmatn', sans-serif; }
+    body { background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #f1f5f9; min-height: 100vh; padding: 40px 20px; font-family: 'Vazirmatn', sans-serif; margin: 0; }
     @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     
-    .container { max-width: 800px; width: 100%; background: rgba(255, 255, 255, 0.035); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 50px; text-align: center; }
-    h1 { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #fff7f3 0%, #f2d9d2 45%, #e8c7d0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-    p { font-size: 1.1rem; line-height: 2; color: #cbd5e1; margin-bottom: 30px; }
-    
-    .btn-back { display: inline-block; padding: 12px 40px; background: rgba(255, 255, 255, 0.05); border: 1px solid #e8c7d0; border-radius: 30px; color: #e8c7d0; text-decoration: none; transition: 0.3s; }
+    .header { text-align: center; margin-bottom: 50px; }
+    h1 { font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, #fff, #e8c7d0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* استایل گالری */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: #e8c7d0;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto; /* برای حفظ نسبت ابعاد عکس */
+      display: block;
+      transition: 0.5s;
+    }
+
+    .item-info { padding: 15px; text-align: center; background: rgba(0,0,0,0.4); }
+    .item-info h3 { margin: 0; font-size: 1rem; color: #e8c7d0; }
+
+    .footer-nav { text-align: center; margin-top: 50px; }
+    .btn-back { display: inline-block; padding: 12px 40px; border: 1px solid #e8c7d0; border-radius: 30px; color: #e8c7d0; text-decoration: none; transition: 0.3s; }
     .btn-back:hover { background: #e8c7d0; color: #1e1b4b; }
+
+    /* استایل دکمه‌های فیلتر */
+    .filter-buttons {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .filter-buttons button {
+        padding: 10px 25px;
+        margin: 0 10px;
+        border: 1px solid #e8c7d0;
+        border-radius: 25px;
+        background: transparent;
+        color: #e8c7d0;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+    .filter-buttons button:hover, .filter-buttons button.active {
+        background: #e8c7d0;
+        color: #1e1b4b;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-   <h1>خدمات طراحی گرافیک</h1>
-<p>خلق هویت بصری متمایز، طراحی تخصصی پوستر، اینفوگرافیک، بنرهای تبلیغاتی و طراحی اختصاصی شبکه‌های اجتماعی. ما در ترنم اترک، ایده‌های شما را به تصاویر ماندگار تبدیل می‌کنیم.</p>
-<p>گرافیکِ خلاقانه، زبان گویای برند شماست.</p>
-<a href="index.html" class="btn-back">بازگشت به ویترین</a>
 
+  <div class="header">
+    <h1>نمونه کارهای گرافیک</h1>
+    <p>خلاقیت در جزئیات، کیفیت در اجرا</p>
   </div>
-</body>
-</html>
+
+  <div class="filter-buttons">
+      <button class="active" onclick="filterGallery('all')">همه</button>
+      <button onclick="filterGallery('poster')">پوستر</button>
+      <button onclick="filterGallery('infographic')">اینفوگرافیک</button>
+  </div>
+
+  <div class="gallery-grid">
+    <!-- نمونه کار ۱: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/25.jpg" alt="پوستر ۲۵">
+      <div class="item-info">
+        <h3>پوستر ۲۵</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۲: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/1.jpg" alt="پوستر ۱">
+      <div class="item-info">
+        <h3>پوستر ۱</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۳: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/11.jpg" alt="پوستر ۱۱">
+      <div class="item-info">
+        <h3>پوستر ۱۱</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۴: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/10.jpg" alt="پوستر ۱۰">
+      <div class="item-info">
+        <h3>پوستر ۱۰</h3>
+      </div>
+    </div>
+    
+    <!-- نمونه کار ۵: پوستر - همکار گاز -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/11 - همکار گاز.jpg" alt="پوستر همکار گاز">
+      <div class="item-info">
+        <h3>پوستر همکار گاز</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۶: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/13.jpg" alt="پوستر ۱۳">
+      <div class="item-info">
+        <h3>پوستر ۱۳</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۷: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/14.jpg" alt="پوستر ۱۴">
+      <div class="item-info">
+        <h3>پوستر ۱۴</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۸: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/15.jpg" alt="پوستر ۱۵">
+      <div class="item-info">
+        <h3>پوستر ۱۵</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۹: پوستر -->
+    <div class="gallery-item" data-category="poster">
+      <img src="images/poster/16.jpg" alt="پوستر ۱۶">
+      <div class="item-info">
+        <h3>پوستر ۱۶</h3>
+      </div>
+    </div>
+
+    <!-- نمونه کار ۱۰: پوستر -->
+    <div class="gallery-item" data-category="poster">
