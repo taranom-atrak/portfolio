@@ -6,13 +6,31 @@
   <title>طراحی گرافیک | ترنم اترک</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
-    body { background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: #f1f5f9; min-height: 100vh; padding: 40px 20px; font-family: 'Vazirmatn', sans-serif; margin: 0; }
-    @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    
-    .header { text-align: center; margin-bottom: 50px; }
-    h1 { font-size: 2.5rem; font-weight: 900; background: linear-gradient(135deg, #fff, #e8c7d0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    body {
+      background: linear-gradient(-45deg, #0f172a, #1e1b4b, #020617, #1e293b);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #f1f5f9;
+      min-height: 100vh;
+      padding: 40px 20px;
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-    /* استایل گالری */
+    .header { text-align: center; margin-bottom: 50px; }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #fff, #e8c7d0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -38,37 +56,56 @@
 
     .gallery-item img {
       width: 100%;
-      height: auto; /* برای حفظ نسبت ابعاد عکس */
+      height: auto;
       display: block;
       transition: 0.5s;
     }
 
-    .item-info { padding: 15px; text-align: center; background: rgba(0,0,0,0.4); }
-    .item-info h3 { margin: 0; font-size: 1rem; color: #e8c7d0; }
+    .item-info {
+      padding: 15px;
+      text-align: center;
+      background: rgba(0,0,0,0.4);
+    }
+    .item-info h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #e8c7d0;
+    }
 
     .footer-nav { text-align: center; margin-top: 50px; }
-    .btn-back { display: inline-block; padding: 12px 40px; border: 1px solid #e8c7d0; border-radius: 30px; color: #e8c7d0; text-decoration: none; transition: 0.3s; }
-    .btn-back:hover { background: #e8c7d0; color: #1e1b4b; }
+    .btn-back {
+      display: inline-block;
+      padding: 12px 40px;
+      border: 1px solid #e8c7d0;
+      border-radius: 30px;
+      color: #e8c7d0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-back:hover {
+      background: #e8c7d0;
+      color: #1e1b4b;
+    }
 
-    /* استایل دکمه‌های فیلتر */
     .filter-buttons {
-        text-align: center;
-        margin-bottom: 30px;
+      text-align: center;
+      margin-bottom: 30px;
     }
     .filter-buttons button {
-        padding: 10px 25px;
-        margin: 0 10px;
-        border: 1px solid #e8c7d0;
-        border-radius: 25px;
-        background: transparent;
-        color: #e8c7d0;
-        cursor: pointer;
-        transition: 0.3s;
-        font-size: 1rem;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border: 1px solid #e8c7d0;
+      border-radius: 25px;
+      background: transparent;
+      color: #e8c7d0;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
     }
-    .filter-buttons button:hover, .filter-buttons button.active {
-        background: #e8c7d0;
-        color: #1e1b4b;
+    .filter-buttons button:hover,
+    .filter-buttons button.active {
+      background: #e8c7d0;
+      color: #1e1b4b;
     }
   </style>
 </head>
@@ -86,103 +123,112 @@
   </div>
 
   <div class="gallery-grid">
-  
-    <!-- پوستر ۲۵ -->
+    <!-- ===== پوسترهای معمولی (پوشه poster) ===== -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۲۵.jpg" alt="پوستر ۲۵">
-      <div class="item-info">
-        <h3>پوستر ۲۵</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۲۵</h3></div>
     </div>
 
-    <!-- پوستر ۱ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱.jpg" alt="پوستر ۱">
-      <div class="item-info">
-        <h3>پوستر ۱</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱</h3></div>
     </div>
 
-    <!-- پوستر ۱.۱ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱.۱.jpg" alt="پوستر ۱.۱">
-      <div class="item-info">
-        <h3>پوستر ۱.۱</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱.۱</h3></div>
     </div>
 
-    <!-- پوستر ۱۰ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۰.jpg" alt="پوستر ۱۰">
-      <div class="item-info">
-        <h3>پوستر ۱۰</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۰</h3></div>
     </div>
 
-    <!-- پوستر ۱۱ - همیار گاز -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۱ - همیار گاز.jpg" alt="پوستر ۱۱ - همیار گاز">
-      <div class="item-info">
-        <h3>پوستر ۱۱ - همیار گاز</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۱ - همیار گاز</h3></div>
     </div>
 
-    <!-- پوستر ۱۲ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۲.jpg" alt="پوستر ۱۲">
-      <div class="item-info">
-        <h3>پوستر ۱۲</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۲</h3></div>
     </div>
 
-    <!-- پوستر ۱۳ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۳.jpg" alt="پوستر ۱۳">
-      <div class="item-info">
-        <h3>پوستر ۱۳</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۳</h3></div>
     </div>
 
-    <!-- پوستر ۱۴ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۴.jpg" alt="پوستر ۱۴">
-      <div class="item-info">
-        <h3>پوستر ۱۴</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۴</h3></div>
     </div>
 
-    <!-- پوستر ۱۵ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۵.jpg" alt="پوستر ۱۵">
-      <div class="item-info">
-        <h3>پوستر ۱۵</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۵</h3></div>
     </div>
 
-    <!-- پوستر ۱۶ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۶.jpg" alt="پوستر ۱۶">
-      <div class="item-info">
-        <h3>پوستر ۱۶</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۶</h3></div>
     </div>
 
-    <!-- پوستر ۱۷ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۷.jpg" alt="پوستر ۱۷">
-      <div class="item-info">
-        <h3>پوستر ۱۷</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۷</h3></div>
     </div>
 
-    <!-- پوستر ۱۸ -->
     <div class="gallery-item" data-category="poster">
       <img src="images/poster/پوستر ۱۸.jpg" alt="پوستر ۱۸">
-      <div class="item-info">
-        <h3>پوستر ۱۸</h3>
-      </div>
+      <div class="item-info"><h3>پوستر ۱۸</h3></div>
     </div>
 
+    <!-- ===== پوسترهای اینفوگرافیک (پوشه پوسترهای آب) ===== -->
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۱.jpg" alt="پوستر آب ۱">
+      <div class="item-info"><h3>پوستر آب ۱</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۲.jpg" alt="پوستر آب ۲">
+      <div class="item-info"><h3>پوستر آب ۲</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۳.jpg" alt="پوستر آب ۳">
+      <div class="item-info"><h3>پوستر آب ۳</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۴.jpg" alt="پوستر آب ۴">
+      <div class="item-info"><h3>پوستر آب ۴</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۵.png" alt="پوستر آب ۵">
+      <div class="item-info"><h3>پوستر آب ۵</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۶.jpg" alt="پوستر آب ۶">
+      <div class="item-info"><h3>پوستر آب ۶</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۷.jpg" alt="پوستر آب ۷">
+      <div class="item-info"><h3>پوستر آب ۷</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۸.jpg" alt="پوستر آب ۸">
+      <div class="item-info"><h3>پوستر آب ۸</h3></div>
+    </div>
+
+    <div class="gallery-item" data-category="infographic">
+      <img src="images/پوسترهای آب/پوستر آب ۹.jpg" alt="پوستر آب ۹">
+      <div class="item-info"><h3>پوستر آب ۹</h3></div>
+    </div>
   </div>
 
   <div class="footer-nav">
@@ -191,25 +237,25 @@
 
   <script>
     function filterGallery(category) {
-        const items = document.querySelectorAll('.gallery-item');
-        const buttons = document.querySelectorAll('.filter-buttons button');
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-buttons button');
 
-        buttons.forEach(button => {
-            if (button.getAttribute('onclick').includes("'" + category + "'")) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
-        });
+      buttons.forEach(button => {
+        if (button.getAttribute('onclick').includes("'" + category + "'")) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
 
-        items.forEach(item => {
-            const itemCategory = item.getAttribute('data-category');
-            if (category === 'all' || itemCategory === category) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
+      items.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'all' || itemCategory === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     }
   </script>
 
