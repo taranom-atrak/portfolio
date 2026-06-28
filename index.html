@@ -224,15 +224,16 @@
       border-radius: 48% 52% 63% 37% / 56% 42% 58% 44%;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:30px;
-      font-size:1rem;
-      line-height:2;
-      color:#f4edf0;
+      /* Removed flex and text-related styles */
       animation-duration:14s;
+    }
+    
+    .blob3 img {
+      display: block; /* Ensure the image behaves as a block element */
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Adjusts image to fit within the content box, maintaining aspect ratio */
+      padding: 10px; /* Add some padding so the image doesn't touch the blob border */
     }
 
     @keyframes morph{
@@ -563,7 +564,9 @@
         <div class="blob-wrap">
           <div class="blob1"></div>
           <div class="blob2"></div>
-          <div class="blob3">هنر، رسانه، خلاقیت و اجرا<br>در یک مسیر واحد</div>
+          <div class="blob3">
+            <img src="081fe226-6d4a-45bd-b523-2d9217ca29d9.png" alt="لوگوی استودیو هنری ترنم اترک - تلفیق هنر، رسانه و خلاقیت">
+          </div>
         </div>
       </div>
     </section>
