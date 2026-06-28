@@ -41,25 +41,21 @@
     /* هدر تمام‌صفحه و سینمایی */
     .hero-cinematic {
       position: relative;
-      height: calc(100vh - 80px); /* ارتفاع کامل صفحه نمایش */
+      height: calc(100vh - 80px);
       min-height: 600px;
       border-radius: 32px;
       overflow: hidden;
       margin-bottom: 60px;
-      
-      /* تکنیک طلایی برای انتقال باکس به سمت چپ بدون به هم ریختن متون فارسی */
       direction: ltr; 
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* باکس متن را کاملا به سمت چپ می‌برد */
-      
+      justify-content: flex-start;
       background: url('https://uploadkon.ir/uploads/c4be28_26bf96007e-deb5-44a0-8517-1e739a17c028.png') no-repeat center center;
       background-size: cover;
       box-shadow: var(--shadow);
       border: 1px solid var(--line);
     }
 
-    /* لایه گرادینت تیره بسیار حرفه‌ای روی سمت چپ */
     .hero-cinematic::before {
       content: "";
       position: absolute;
@@ -73,7 +69,7 @@
     }
 
     .hero-content {
-      direction: rtl; /* بازگرداندن راست‌چین برای متون فارسی */
+      direction: rtl;
       text-align: right;
       position: relative;
       z-index: 2;
@@ -88,7 +84,7 @@
       color: var(--gold2);
       border-radius: 999px;
       font-size: 0.85rem;
-      margin-bottom: 25px;
+      margin-top: 15px;
       background: rgba(216, 179, 106, 0.1);
       backdrop-filter: blur(5px);
     }
@@ -100,15 +96,6 @@
       font-weight: 900;
       color: #fff;
       text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-
-    h1 span {
-      display: block;
-      font-size: 1.7rem;
-      font-weight: 400;
-      color: var(--gold2);
-      margin-top: 10px;
-      letter-spacing: 1px;
     }
 
     .hero-content p {
@@ -154,7 +141,6 @@
       transform: translateY(-3px);
     }
 
-    /* نشانگر اسکرول به پایین در هدر */
     .scroll-indicator {
       position: absolute;
       bottom: 25px;
@@ -162,21 +148,15 @@
       transform: translateX(-50%);
       z-index: 2;
       color: var(--muted);
-      font-size: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      font-size: 1.5rem;
       animation: bounce 2s infinite;
     }
 
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
       40% { transform: translate(-50%, -10px); }
-      60% { transform: translate(-50%, -5px); }
     }
 
-    /* بخش ویژگی‌های سه گانه (نگاه هنری و ...) */
     .features-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -220,7 +200,6 @@
       line-height: 1.7;
     }
 
-    /* بخش خدمات استودیو */
     .section-title {
       font-size: 1.6rem;
       margin: 40px 0 25px;
@@ -296,34 +275,12 @@
       padding-left: 5px;
     }
 
-    /* واکنش‌گرایی برای موبایل */
-    @media (max-width: 992px) {
-      .features-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 768px) {
       h1 { font-size: 3.2rem; }
-      .hero-cinematic { 
-        height: auto;
-        min-height: 550px;
-        direction: rtl; 
-        justify-content: center; 
-      }
-      .hero-cinematic::before {
-        background: rgba(8, 9, 12, 0.85); /* تیره کردن کل پس‌زمینه در موبایل */
-      }
-      .hero-content { 
-        padding: 40px 20px; 
-        text-align: center; 
-      }
-      .hero-actions { 
-        justify-content: center; 
-      }
-      .scroll-indicator {
-        display: none;
-      }
+      .hero-cinematic { height: auto; min-height: 550px; direction: rtl; justify-content: center; }
+      .hero-content { padding: 40px 20px; text-align: center; }
+      .hero-actions { justify-content: center; }
+      .features-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -331,13 +288,11 @@
 
   <div class="page">
     
-    <!-- هدر تمام صفحه و سینمایی جدید (متن دقیقا در چپِ تاریک تصویر) -->
     <section class="hero-cinematic">
       <div class="hero-content">
-       
         <h1>
           ترنم اترک
-         <div class="top-label">استودیو خلاق رسانه، تبلیغات و تولید محتوای هنری</div>
+          <div class="top-label">استودیو خلاق رسانه، تبلیغات و تولید محتوای هنری</div>
         </h1>
         <p>
           ما در ترنم اترک، ایده‌ها را به تجربه‌های حرفه‌ای و ماندگار تبدیل می‌کنیم؛<br>
@@ -346,19 +301,17 @@
         </p>
 
         <div class="hero-actions">
+          <!-- اصلاح لینک به about.html بر اساس فایل‌های گیت‌هاب شما -->
           <a href="about.html" class="btn btn-primary">معرفی استودیو</a>
           <a href="contact.html" class="btn btn-secondary">تماس با ما</a>
         </div>
       </div>
 
-      <!-- راهنمای اسکرول برای ترغیب کاربر به پایین رفتن -->
       <div class="scroll-indicator">
-        
         <span>▼</span>
       </div>
     </section>
 
-    <!-- بخش ویژگی‌های سه‌گانه اصلی استودیو (۰۱، ۰۲، ۰۳) -->
     <section class="features-row">
       <div class="feature-card">
         <span class="num">01</span>
@@ -377,11 +330,11 @@
       </div>
     </section>
 
-    <!-- بخش تمام خدمات استودیو (۹ کارت کامل) -->
     <div class="section-title">خدمات استودیو</div>
     <section class="services-grid">
       
-      <a href="about-studio.html" class="service-card">
+      <!-- لینک اصلاح شده -->
+      <a href="about.html" class="service-card">
         <div>
           <div class="service-card-header">✨ درباره ترنم اترک</div>
           <p>آشنایی با هویت، نگاه کاری و مسیر حرفه‌ای استودیو هنری ترنم اترک.</p>
@@ -397,7 +350,8 @@
         <span class="service-link">مشاهده صفحه &larr;</span>
       </a>
 
-      <a href="posters.html" class="service-card">
+      <!-- لینک اصلاح شده به graphics.html بر اساس فایل‌های گیت‌هاب شما -->
+      <a href="graphics.html" class="service-card">
         <div>
           <div class="service-card-header">🖼️ پوستر و اینفوگرافیک</div>
           <p>طراحی پوسترهای تبلیغاتی، محتوای بصری و اینفوگرافیک‌های حرفه‌ای و تاثیرگذار.</p>
@@ -408,7 +362,7 @@
       <a href="motion.html" class="service-card">
         <div>
           <div class="service-card-header">🎬 موشن گرافیک</div>
-          <p>تبدیل پیام‌های شما به روایت‌های تصویری پویا، جذاب و قابل‌فهم برای مخاطب.>
+          <p>تبدیل پیام‌های شما به روایت‌های تصویری پویا، جذاب و قابل‌فهم برای مخاطب.</p>
         </div>
         <span class="service-link">مشاهده صفحه &larr;</span>
       </a>
@@ -431,7 +385,7 @@
 
       <a href="teaser.html" class="service-card">
         <div>
-          <div class="service-card-header">🚀تیزر تبلیغاتی</div>
+          <div class="service-card-header">🚀 تیزر تبلیغاتی</div>
           <p>ساخت تیزرهای تبلیغاتی کوتاه، خلاق و اثرگذار برای برندها، مجموعه‌ها و کسب‌وکارها.</p>
         </div>
         <span class="service-link">مشاهده صفحه &larr;</span>
@@ -440,7 +394,7 @@
       <a href="events.html" class="service-card">
         <div>
           <div class="service-card-header">🎉 جشن‌ها و همایش‌ها</div>
-          <p>برنامه‌ریزی، اجرا، مدیریت و هماهنگی رویدادهای فرهنگ، هنری و سازمانی.</p>
+          <p>برنامه‌ریزی، اجرا، مدیریت و هماهنگی رویدادهای فرهنگی، هنری و سازمانی.</p>
         </div>
         <span class="service-link">مشاهده صفحه &larr;</span>
       </a>
