@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>استودیو هنری ترنم اترک</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +11,17 @@
 
   <style>
     :root{
-      --bg:#0d0f14;
-      --bg2:#151821;
-      --panel:#131720;
-      --panel2:#1a1f2b;
+      --bg:#0b0d14;
+      --bg2:#131725;
+      --card:#171b2b;
+      --card2:#1d2235;
       --line:rgba(255,255,255,.08);
-      --soft:rgba(255,255,255,.05);
-      --text:#f8f4f2;
-      --muted:#c7bcc1;
-      --gold:#d8b36a;
-      --gold2:#f0d7a1;
-      --rose:#d8a8b7;
+      --text:#f9f6f4;
+      --muted:#c8bdc5;
+      --rose:#d7a6b5;
+      --purple:#a78bfa;
+      --gold:#e6c27a;
+      --mint:#7dd3c7;
       --shadow:0 18px 50px rgba(0,0,0,.35);
     }
 
@@ -32,322 +32,424 @@
     }
 
     body{
-      font-family:'Vazirmatn',sans-serif;
-      background:
-        radial-gradient(circle at 85% 15%, rgba(216,179,106,.12), transparent 18%),
-        radial-gradient(circle at 15% 80%, rgba(216,168,183,.10), transparent 18%),
-        linear-gradient(135deg,#0b0d12 0%, #12151c 45%, #17131b 100%);
+      font-family:'Vazirmatn', sans-serif;
       color:var(--text);
       min-height:100vh;
       overflow-x:hidden;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(167,139,250,.18), transparent 18%),
+        radial-gradient(circle at 12% 80%, rgba(215,166,181,.16), transparent 20%),
+        radial-gradient(circle at 60% 40%, rgba(230,194,122,.08), transparent 22%),
+        linear-gradient(135deg, #090b12 0%, #111523 45%, #17111d 100%);
+    }
+
+    .noise{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.035;
+      background-image:
+        radial-gradient(#ffffff 0.6px, transparent 0.6px);
+      background-size:16px 16px;
+      z-index:0;
     }
 
     .page{
-      width:min(1200px,92%);
+      width:min(1180px, 92%);
       margin:0 auto;
-      padding:40px 0 70px;
+      padding:34px 0 60px;
+      position:relative;
+      z-index:1;
     }
 
     .hero{
       position:relative;
-      min-height:420px;
+      min-height:500px;
       border:1px solid var(--line);
-      border-radius:36px;
+      border-radius:38px;
       overflow:hidden;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.015)),
-        linear-gradient(120deg, #121722 0%, #18131b 55%, #10131a 100%);
-      box-shadow:var(--shadow);
-      display:flex;
+      padding:55px 48px 40px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
       align-items:center;
-      margin-bottom:36px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.015)),
+        linear-gradient(120deg, #121626 0%, #181423 100%);
+      box-shadow:var(--shadow);
     }
 
     .hero::before{
       content:"";
       position:absolute;
-      inset:0;
-      background:
-        linear-gradient(to left, transparent 0%, rgba(216,179,106,.08) 45%, transparent 100%);
-      pointer-events:none;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      top:-160px;
+      right:-100px;
+      background:radial-gradient(circle, rgba(167,139,250,.20), transparent 70%);
+      filter:blur(5px);
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      width:420px;
-      height:420px;
+      width:360px;
+      height:360px;
       border-radius:50%;
-      left:-120px;
-      top:-120px;
-      background:radial-gradient(circle, rgba(216,179,106,.12), transparent 70%);
-      filter:blur(10px);
-      pointer-events:none;
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:100%;
-      padding:60px 55px;
-      display:grid;
-      grid-template-columns: 1.3fr .9fr;
-      gap:30px;
-      align-items:center;
+      bottom:-120px;
+      left:-100px;
+      background:radial-gradient(circle, rgba(215,166,181,.18), transparent 70%);
+      filter:blur(6px);
     }
 
     .hero-text{
-      max-width:700px;
+      position:relative;
+      z-index:2;
     }
 
-    .top-label{
+    .hero-badge{
       display:inline-block;
-      padding:9px 18px;
-      border:1px solid rgba(216,179,106,.28);
-      color:var(--gold2);
+      padding:9px 17px;
       border-radius:999px;
       font-size:.9rem;
-      margin-bottom:20px;
-      background:rgba(216,179,106,.06);
-      letter-spacing:.2px;
+      color:#fff;
+      margin-bottom:18px;
+      background:linear-gradient(90deg, rgba(167,139,250,.22), rgba(215,166,181,.18));
+      border:1px solid rgba(255,255,255,.08);
     }
 
     h1{
-      font-size:5.4rem;
-      line-height:1;
-      margin-bottom:18px;
+      font-size:5rem;
+      line-height:1.02;
       font-weight:900;
+      margin-bottom:18px;
+      letter-spacing:-1.5px;
       color:#fff;
-      text-shadow:0 8px 30px rgba(0,0,0,.28);
     }
 
-    .hero-text h1 span{
+    h1 span{
       display:block;
-      font-size:2rem;
       margin-top:12px;
+      font-size:1.35rem;
       font-weight:400;
-      color:var(--gold2);
+      color:var(--gold);
       letter-spacing:1px;
     }
 
     .hero-text p{
-      font-size:1.08rem;
-      line-height:2.15;
       color:var(--muted);
+      font-size:1.07rem;
+      line-height:2.15;
       max-width:640px;
-      margin-bottom:28px;
+      margin-bottom:30px;
     }
 
     .hero-actions{
       display:flex;
-      gap:14px;
       flex-wrap:wrap;
+      gap:14px;
     }
 
     .btn{
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:16px;
+      font-weight:700;
+      transition:.3s ease;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      text-decoration:none;
-      padding:14px 24px;
-      border-radius:14px;
-      font-weight:700;
-      transition:.3s ease;
-      border:1px solid transparent;
     }
 
-    .btn-primary{
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      color:#141414;
-      box-shadow:0 10px 25px rgba(216,179,106,.22);
+    .btn-main{
+      background:linear-gradient(135deg, var(--rose), #f0c8b3);
+      color:#181818;
+      box-shadow:0 12px 28px rgba(215,166,181,.24);
     }
 
-    .btn-primary:hover{
+    .btn-main:hover{
       transform:translateY(-3px);
     }
 
-    .btn-secondary{
+    .btn-alt{
+      border:1px solid rgba(255,255,255,.09);
+      color:#fff;
       background:rgba(255,255,255,.04);
-      color:#f2e8e3;
-      border-color:rgba(255,255,255,.09);
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.07);
+    .btn-alt:hover{
       transform:translateY(-3px);
+      background:rgba(255,255,255,.07);
     }
 
-    .hero-side{
+    .hero-art{
       position:relative;
+      z-index:2;
+      min-height:360px;
       display:flex;
-      justify-content:center;
       align-items:center;
-      min-height:260px;
+      justify-content:center;
     }
 
-    .art-box{
-      width:100%;
-      max-width:330px;
-      aspect-ratio:1/1;
-      border-radius:30px;
+    .blob-wrap{
       position:relative;
-      background:
-        linear-gradient(145deg, rgba(216,179,106,.12), rgba(255,255,255,.03)),
-        rgba(255,255,255,.02);
+      width:100%;
+      max-width:370px;
+      aspect-ratio:1/1;
+    }
+
+    .blob1, .blob2, .blob3{
+      position:absolute;
+      inset:0;
+      border-radius: 40% 60% 62% 38% / 38% 38% 62% 62%;
+      animation: morph 10s ease-in-out infinite;
+    }
+
+    .blob1{
+      background:linear-gradient(135deg, rgba(167,139,250,.26), rgba(125,211,199,.10));
       border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 18px 45px rgba(0,0,0,.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .blob2{
+      inset:30px;
+      border-radius: 58% 42% 35% 65% / 47% 63% 37% 53%;
+      background:linear-gradient(135deg, rgba(215,166,181,.24), rgba(230,194,122,.10));
+      animation-duration:12s;
+    }
+
+    .blob3{
+      inset:75px;
+      border-radius: 48% 52% 63% 37% / 56% 42% 58% 44%;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:30px;
+      font-size:1rem;
+      line-height:2;
+      color:#f4edf0;
+      animation-duration:14s;
+    }
+
+    @keyframes morph{
+      0%{
+        border-radius: 40% 60% 62% 38% / 38% 38% 62% 62%;
+        transform:rotate(0deg);
+      }
+      50%{
+        border-radius: 60% 40% 35% 65% / 55% 45% 55% 45%;
+        transform:rotate(6deg);
+      }
+      100%{
+        border-radius: 40% 60% 62% 38% / 38% 38% 62% 62%;
+        transform:rotate(0deg);
+      }
+    }
+
+    .intro-strip{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:20px;
+      margin-top:24px;
+      margin-bottom:36px;
+    }
+
+    .intro-box,
+    .quote-box{
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:26px 24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
+    }
+
+    .intro-box h2,
+    .quote-box h2{
+      font-size:1.2rem;
+      margin-bottom:12px;
+      color:#fff;
+    }
+
+    .intro-box p,
+    .quote-box p{
+      color:var(--muted);
+      line-height:2.05;
+      font-size:.97rem;
+    }
+
+    .quote-box{
+      position:relative;
       overflow:hidden;
     }
 
-    .art-box::before,
-    .art-box::after{
-      content:"";
+    .quote-box::before{
+      content:"“";
       position:absolute;
-      border-radius:50%;
-      filter:blur(2px);
+      top:-18px;
+      left:18px;
+      font-size:6rem;
+      color:rgba(230,194,122,.12);
+      font-weight:900;
     }
 
-    .art-box::before{
-      width:180px;
-      height:180px;
-      top:35px;
-      right:35px;
-      background:radial-gradient(circle, rgba(216,179,106,.35), transparent 70%);
-    }
-
-    .art-box::after{
-      width:150px;
-      height:150px;
-      bottom:30px;
-      left:20px;
-      background:radial-gradient(circle, rgba(216,168,183,.28), transparent 70%);
-    }
-
-    .art-lines{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:26px 26px;
-      mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent);
-    }
-
-    .featured{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:20px;
-      margin-bottom:24px;
-    }
-
-    .feature-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .feature-card .num{
-      font-size:.86rem;
-      color:var(--gold2);
-      margin-bottom:10px;
-    }
-
-    .feature-card h3{
-      font-size:1.18rem;
-      margin-bottom:10px;
-      color:#fff;
-    }
-
-    .feature-card p{
-      color:var(--muted);
-      line-height:1.95;
-      font-size:.96rem;
-    }
-
-    .section-title{
-      margin:42px 0 18px;
+    .section-head{
       display:flex;
       align-items:center;
-      gap:12px;
-      color:#fff;
-      font-size:1.4rem;
-      font-weight:800;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
     }
 
-    .section-title::before{
-      content:"";
-      width:44px;
-      height:2px;
-      background:linear-gradient(to left, var(--gold), transparent);
-      display:block;
+    .section-head h2{
+      font-size:1.55rem;
+      font-weight:800;
+      color:#fff;
+    }
+
+    .section-head span{
+      color:var(--gold);
+      font-size:.95rem;
     }
 
     .services{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(12,1fr);
       gap:20px;
     }
 
-    .service{
-      position:relative;
+    .card{
       text-decoration:none;
       color:inherit;
-      min-height:220px;
-      border-radius:26px;
+      position:relative;
       overflow:hidden;
+      border-radius:30px;
       border:1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)),
-        linear-gradient(135deg, #151923 0%, #18131a 100%);
-      padding:26px;
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        linear-gradient(135deg, #171b2b 0%, #131726 100%);
+      padding:24px 22px 26px;
+      min-height:220px;
       transition:.35s ease;
-      box-shadow:0 12px 35px rgba(0,0,0,.22);
+      box-shadow:0 14px 35px rgba(0,0,0,.20);
     }
 
-    .service:hover{
-      transform:translateY(-10px) scale(1.01);
-      border-color:rgba(216,179,106,.28);
-      box-shadow:0 18px 45px rgba(0,0,0,.30);
+    .card:hover{
+      transform:translateY(-10px) rotate(-.4deg);
+      box-shadow:0 22px 48px rgba(0,0,0,.28);
+      border-color:rgba(255,255,255,.14);
     }
 
-    .service .icon{
-      font-size:2rem;
-      margin-bottom:20px;
+    .card::after{
+      content:"";
+      position:absolute;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      left:-55px;
+      bottom:-65px;
+      background:radial-gradient(circle, rgba(255,255,255,.07), transparent 70%);
+      pointer-events:none;
+    }
+
+    .card.large{
+      grid-column:span 5;
+      min-height:250px;
+    }
+
+    .card.medium{
+      grid-column:span 4;
+    }
+
+    .card.small{
+      grid-column:span 3;
+    }
+
+    .tag{
       display:inline-block;
-      filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));
+      font-size:.78rem;
+      padding:7px 12px;
+      border-radius:999px;
+      margin-bottom:16px;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.05);
     }
 
-    .service h3{
-      font-size:1.22rem;
+    .icon{
+      font-size:1.95rem;
+      margin-bottom:14px;
+      display:block;
+    }
+
+    .card h3{
+      font-size:1.28rem;
       margin-bottom:10px;
       color:#fff;
       font-weight:800;
     }
 
-    .service p{
+    .card p{
       color:var(--muted);
-      line-height:1.95;
-      font-size:.96rem;
-      max-width:95%;
+      line-height:2;
+      font-size:.95rem;
+      max-width:92%;
     }
 
-    .service .more{
+    .arrow{
       position:absolute;
-      bottom:20px;
       left:22px;
-      color:var(--gold2);
-      font-size:.95rem;
+      bottom:18px;
+      color:var(--gold);
       font-weight:700;
+      font-size:.95rem;
     }
+
+    .card.about{ background:
+      linear-gradient(180deg, rgba(215,166,181,.14), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #1b1b2f 0%, #171325 100%); }
+
+    .card.radio{ background:
+      linear-gradient(180deg, rgba(125,211,199,.11), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #151b2a 0%, #10141e 100%); }
+
+    .card.graphics{ background:
+      linear-gradient(180deg, rgba(230,194,122,.12), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #1c1824 0%, #151926 100%); }
+
+    .card.motion{ background:
+      linear-gradient(180deg, rgba(167,139,250,.13), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #181828 0%, #141926 100%); }
+
+    .card.podcast{ background:
+      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #181621 0%, #141820 100%); }
+
+    .card.dubbing{ background:
+      linear-gradient(180deg, rgba(215,166,181,.12), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #1b1722 0%, #131722 100%); }
+
+    .card.teaser{ background:
+      linear-gradient(180deg, rgba(230,194,122,.11), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #1c1720 0%, #151824 100%); }
+
+    .card.events{ background:
+      linear-gradient(180deg, rgba(125,211,199,.10), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #151e25 0%, #111821 100%); }
+
+    .card.contact{ background:
+      linear-gradient(180deg, rgba(167,139,250,.11), rgba(255,255,255,.02)),
+      linear-gradient(135deg, #1a1730 0%, #121622 100%); }
 
     .footer{
-      margin-top:50px;
-      padding:28px 10px 0;
+      margin-top:48px;
       text-align:center;
-      color:#9f9396;
-      font-size:.95rem;
+      color:#a89ca3;
+      font-size:.94rem;
+      padding-top:24px;
     }
 
     .footer::before{
@@ -356,182 +458,211 @@
       width:180px;
       height:1px;
       margin:0 auto 16px;
-      background:linear-gradient(to left, transparent, rgba(216,179,106,.65), transparent);
+      background:linear-gradient(to left, transparent, rgba(255,255,255,.22), transparent);
     }
 
     @media (max-width: 980px){
-      .hero-content{
+      .hero{
         grid-template-columns:1fr;
-      }
-
-      .hero-side{
-        min-height:180px;
-      }
-
-      .featured,
-      .services{
-        grid-template-columns:repeat(2,1fr);
+        padding:38px 28px 30px;
       }
 
       h1{
-        font-size:4.3rem;
+        font-size:4rem;
+      }
+
+      .intro-strip{
+        grid-template-columns:1fr;
+      }
+
+      .card.large,
+      .card.medium,
+      .card.small{
+        grid-column:span 6;
       }
     }
 
-    @media (max-width: 680px){
+    @media (max-width: 640px){
       .page{
         width:min(94%, 100%);
-        padding:18px 0 45px;
+        padding:18px 0 42px;
       }
 
       .hero{
-        border-radius:24px;
-        min-height:auto;
-      }
-
-      .hero-content{
-        padding:32px 20px;
-        gap:22px;
+        border-radius:26px;
+        padding:28px 18px 22px;
       }
 
       h1{
-        font-size:3rem;
+        font-size:2.9rem;
       }
 
-      .hero-text h1 span{
-        font-size:1.2rem;
+      h1 span{
+        font-size:1.05rem;
       }
 
       .hero-text p{
-        font-size:.97rem;
+        font-size:.96rem;
         line-height:2;
       }
 
-      .featured,
-      .services{
-        grid-template-columns:1fr;
+      .hero-art{
+        min-height:280px;
       }
 
-      .feature-card,
-      .service{
-        border-radius:20px;
+      .blob-wrap{
+        max-width:290px;
+      }
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .card.large,
+      .card.medium,
+      .card.small{
+        grid-column:span 12;
+        min-height:210px;
+      }
+
+      .intro-box,
+      .quote-box,
+      .card{
+        border-radius:22px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="noise"></div>
+
   <div class="page">
 
     <section class="hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="top-label">استودیو خلاق رسانه، تبلیغات و تولید محتوای هنری</div>
-          <h1>
-            ترنم اترک
-            <span>Taranom Atrak Art Studio</span>
-          </h1>
-          <p>
-            ما در ترنم اترک، ایده‌ها را به تجربه‌های حرفه‌ای و ماندگار تبدیل می‌کنیم؛
-            از تولید محتوای صوتی و تصویری تا طراحی، موشن، دوبله، تیزرهای تبلیغاتی
-            و اجرای رویدادهای فرهنگی و سازمانی.
-          </p>
+      <div class="hero-text">
+        <div class="hero-badge">استودیو خلاق رسانه، هنر و تولید محتوای دیجیتال</div>
+        <h1>
+          ترنم اترک
+          <span>Taranom Atrak Art Studio</span>
+        </h1>
+        <p>
+          ترنم اترک جایی‌ست که ایده، احساس و روایت در کنار هم به اثر تبدیل می‌شوند.
+          ما با نگاهی هنری و اجرایی، در حوزه تولید محتوای صوتی و تصویری، طراحی،
+          موشن گرافیک، دوبله، تیزرهای تبلیغاتی و رویدادهای فرهنگی، تجربه‌ای حرفه‌ای
+          و متمایز خلق می‌کنیم.
+        </p>
 
-          <div class="hero-actions">
-            <a href="about.html" class="btn btn-primary">معرفی استودیو</a>
-            <a href="contact.html" class="btn btn-secondary">تماس با ما</a>
-          </div>
+        <div class="hero-actions">
+          <a href="about.html" class="btn btn-main">معرفی استودیو</a>
+          <a href="contact.html" class="btn btn-alt">ارتباط با ما</a>
         </div>
+      </div>
 
-        <div class="hero-side">
-          <div class="art-box">
-            <div class="art-lines"></div>
-          </div>
+      <div class="hero-art">
+        <div class="blob-wrap">
+          <div class="blob1"></div>
+          <div class="blob2"></div>
+          <div class="blob3">هنر، رسانه، خلاقیت و اجرا<br>در یک مسیر واحد</div>
         </div>
       </div>
     </section>
 
-    <section class="featured">
-      <div class="feature-card">
-        <div class="num">01</div>
-        <h3>نگاه هنری و حرفه‌ای</h3>
-        <p>ترکیب خلاقیت، زیبایی‌شناسی و استانداردهای حرفه‌ای برای ارائه خروجی‌های متمایز و اثرگذار.</p>
+    <section class="intro-strip">
+      <div class="intro-box">
+        <h2>چرا ترنم اترک؟</h2>
+        <p>
+          ما فقط تولیدکننده محتوا نیستیم؛ بلکه تلاش می‌کنیم برای هر پروژه، زبان بصری
+          و روایی مخصوص به آن را پیدا کنیم. نتیجه این نگاه، آثاری است که علاوه بر
+          زیبایی و کیفیت، هویت و اثرگذاری نیز دارند.
+        </p>
       </div>
-      <div class="feature-card">
-        <div class="num">02</div>
-        <h3>تولید محتوای چندرسانه‌ای</h3>
-        <p>از صدا و تصویر تا طراحی و اجرا؛ مجموعه‌ای کامل از خدمات رسانه‌ای در یک استودیو.</p>
-      </div>
-      <div class="feature-card">
-        <div class="num">03</div>
-        <h3>همراهی از ایده تا اجرا</h3>
-        <p>از مرحله ایده‌پردازی و طراحی تا تولید نهایی و ارائه، در کنار شما هستیم.</p>
+
+      <div class="quote-box">
+        <h2>رویکرد ما</h2>
+        <p>
+          از ایده‌پردازی تا اجرای نهایی، هر پروژه برای ما فرصتی است برای ساختن
+          تجربه‌ای دقیق، خلاق و ماندگار.
+        </p>
       </div>
     </section>
 
-    <div class="section-title">خدمات استودیو</div>
+    <div class="section-head">
+      <h2>خدمات و نمونه فعالیت‌ها</h2>
+      <span>Creative Portfolio</span>
+    </div>
 
     <section class="services">
-      <a href="about.html" class="service">
-        <div class="icon">✨</div>
+      <a href="about.html" class="card about large">
+        <div class="tag">معرفی</div>
+        <span class="icon">✨</span>
         <h3>درباره ترنم اترک</h3>
-        <p>آشنایی با هویت، نگاه کاری و مسیر حرفه‌ای استودیو هنری ترنم اترک.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>آشنایی با هویت، نگاه هنری، تجربه‌ها و مسیر حرفه‌ای استودیو هنری ترنم اترک.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="radio.html" class="service">
-        <div class="icon">📻</div>
+      <a href="radio.html" class="card radio medium">
+        <div class="tag">Audio</div>
+        <span class="icon">📻</span>
         <h3>برنامه‌های رادیویی</h3>
-        <p>تولید و اجرای برنامه‌های شنیداری، آیتم‌سازی، مجری‌گری و محتوای صوتی حرفه‌ای.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>تولید محتوای شنیداری، مجری‌گری، آیتم‌سازی و ساخت برنامه‌های حرفه‌ای رادیویی.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="graphics.html" class="service">
-        <div class="icon">🖼️</div>
+      <a href="graphics.html" class="card graphics small">
+        <div class="tag">Design</div>
+        <span class="icon">🖼️</span>
         <h3>پوستر و اینفوگرافیک</h3>
-        <p>طراحی پوسترهای تبلیغاتی، محتوای بصری و اینفوگرافیک‌های حرفه‌ای و تاثیرگذار.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>طراحی آثار گرافیکی، پوسترهای تبلیغاتی و ارائه بصری اطلاعات.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="motion.html" class="service">
-        <div class="icon">🎬</div>
+      <a href="motion.html" class="card motion small">
+        <div class="tag">Motion</div>
+        <span class="icon">🎬</span>
         <h3>موشن گرافیک</h3>
-        <p>تبدیل پیام‌های شما به روایت‌های تصویری پویا، جذاب و قابل‌فهم برای مخاطب.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>روایت ایده‌ها با تصویر، حرکت، موسیقی و طراحی پویا.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="podcast.html" class="service">
-        <div class="icon">🎙️</div>
+      <a href="podcast.html" class="card podcast medium">
+        <div class="tag">Podcast</div>
+        <span class="icon">🎙️</span>
         <h3>پادکست</h3>
-        <p>تولید، ضبط، تدوین و آماده‌سازی پادکست‌های حرفه‌ای با کیفیت صوتی استاندارد.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>ضبط، تدوین و تولید پادکست‌های حرفه‌ای با استانداردهای دقیق صوتی.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="dubbing.html" class="service">
-        <div class="icon">🎭</div>
+      <a href="dubbing.html" class="card dubbing medium">
+        <div class="tag">Voice</div>
+        <span class="icon">🎭</span>
         <h3>دوبله انیمیشن</h3>
-        <p>صداپیشگی و دوبله تخصصی برای آثار انیمیشنی، آموزشی و رسانه‌ای.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>صداپیشگی و دوبله تخصصی برای آثار انیمیشنی، فرهنگی و آموزشی.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="teaser.html" class="service">
-        <div class="icon">🚀</div>
+      <a href="teaser.html" class="card teaser small">
+        <div class="tag">Promo</div>
+        <span class="icon">🚀</span>
         <h3>تیزر تبلیغاتی</h3>
-        <p>ساخت تیزرهای تبلیغاتی کوتاه، خلاق و اثرگذار برای برندها، مجموعه‌ها و کسب‌وکارها.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>ساخت تیزرهای کوتاه، جذاب و برندمحور برای معرفی خدمات و محصولات.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="events.html" class="service">
-        <div class="icon">🎊</div>
+      <a href="events.html" class="card events medium">
+        <div class="tag">Events</div>
+        <span class="icon">🎊</span>
         <h3>جشن‌ها و همایش‌ها</h3>
-        <p>برنامه‌ریزی، اجرا، مدیریت و هماهنگی رویدادهای فرهنگی، هنری و سازمانی.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>طراحی، برنامه‌ریزی، هماهنگی و اجرای رویدادهای فرهنگی و سازمانی.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
 
-      <a href="contact.html" class="service">
-        <div class="icon">📲</div>
+      <a href="contact.html" class="card contact large">
+        <div class="tag">Contact</div>
+        <span class="icon">📲</span>
         <h3>تماس با ما</h3>
-        <p>برای مشاوره، ثبت سفارش یا همکاری، از این بخش با ما در ارتباط باشید.</p>
-        <div class="more">مشاهده صفحه ←</div>
+        <p>برای دریافت مشاوره، ثبت سفارش، همکاری و شروع پروژه‌های جدید با ما در ارتباط باشید.</p>
+        <div class="arrow">مشاهده صفحه ←</div>
       </a>
     </section>
 
