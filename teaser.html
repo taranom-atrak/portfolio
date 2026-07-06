@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تیزرهای تبلیغاتی | استودیو ترنم اترک</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: 'Vazirmatn', sans-serif;
@@ -18,103 +17,56 @@
       animation: bg 15s ease infinite;
       padding: 40px 20px;
     }
-
-    @keyframes bg {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    @keyframes bg { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
     .hero-box {
-      max-width: 1000px;
-      margin: 0 auto 35px;
+      max-width: 950px;
+      margin: 0 auto 40px;
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 28px;
-      padding: 36px 30px;
+      padding: 40px;
       backdrop-filter: blur(16px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.35);
       text-align: center;
     }
+    h1 { margin: 0 0 20px; font-size: 2.5rem; font-weight: 900; color: #fff; }
+    .intro { margin: 0; text-align: justify; line-height: 1.9; font-size: 1.05rem; color: #cbd5e1; }
+    .accent { color: #f5d0fe; font-weight: 700; }
 
-    h1 {
-      margin: 0 0 16px;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .intro {
-      margin: 0;
-      text-align: justify;
-      line-height: 1.9;
-      font-size: 1.05rem;
-      color: #cbd5e1;
-    }
-
-    .accent {
-      color: #f5d0fe;
-      font-weight: 700;
-    }
-
-    .section-title {
-      max-width: 1200px;
-      margin: 30px auto 15px;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #f5d0fe;
-      text-align: center;
-    }
-
-    .grid-horizontal {
-      max-width: 1200px;
-      margin: 0 auto 35px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      align-items: start;
-    }
-
-    .grid-vertical {
-      max-width: 800px;
+    /* ظرف اصلی گرید */
+    .grid {
+      max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      justify-items: center;
+      /* ساخت دو ستون برابر برای ویدئوهای افقی */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 30px;
+      align-items: start;
     }
-
+    
     .card {
-      width: 100%;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 24px;
       padding: 18px;
       transition: 0.3s ease;
     }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #f5d0fe;
-    }
-
+    .card:hover { transform: translateY(-8px); border-color: #f5d0fe; }
+    
     video {
       width: 100%;
-      display: block;
       border-radius: 16px;
+      display: block;
       background: #000;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    /* ویدئو افقی */
-    .horizontal-card video {
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-    }
-
-    /* ویدئو عمودی */
+    /* استایل مخصوص ویدئوی عمودی در ردیف پایین */
     .vertical-card {
-      max-width: 360px;
+      grid-column: span 2; /* اشغال کل عرض در موبایل یا قرارگیری در ردیف جدید */
+      justify-self: center; /* وسط‌چین کردن در ردیف خودش */
+      max-width: 400px; /* جلوگیری از بزرگ شدن بیش از حد */
     }
 
     .vertical-card video {
@@ -122,29 +74,11 @@
       object-fit: cover;
     }
 
-    .video-info {
-      margin-top: 16px;
-      text-align: right;
-      padding: 0 5px;
-    }
+    .video-info { margin-top: 18px; text-align: right; padding: 0 5px; }
+    .video-info h3 { margin: 0 0 5px; font-size: 1.1rem; color: #f5d0fe; }
+    .video-info p { margin: 0; color: #94a3b8; font-size: 0.9rem; }
 
-    .video-info h3 {
-      margin: 0 0 6px;
-      font-size: 1.08rem;
-      color: #f5d0fe;
-    }
-
-    .video-info p {
-      margin: 0;
-      color: #94a3b8;
-      font-size: 0.92rem;
-    }
-
-    .footer {
-      margin-top: 40px;
-      text-align: center;
-    }
-
+    .footer { margin-top: 50px; text-align: center; }
     .btn-back {
       display: inline-block;
       padding: 12px 45px;
@@ -156,45 +90,12 @@
       background: rgba(255,255,255,0.04);
       transition: 0.3s;
     }
+    .btn-back:hover { background: #e9d5ff; color: #1e1b4b; transform: scale(1.05); }
 
-    .btn-back:hover {
-      background: #e9d5ff;
-      color: #1e1b4b;
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 900px) {
-      .grid-horizontal {
-        grid-template-columns: 1fr;
-      }
-      .vertical-card {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 24px 14px;
-      }
-
-      .hero-box {
-        padding: 24px 18px;
-        border-radius: 22px;
-      }
-
-      h1 {
-        font-size: 1.9rem;
-      }
-
-      .grid-horizontal,
-      .grid-vertical {
-        gap: 18px;
-      }
-
-      .card {
-        padding: 14px;
-        border-radius: 20px;
-      }
+    /* بهینه سازی برای موبایل */
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; } /* در موبایل همه زیر هم باشند */
+      .vertical-card { grid-column: span 1; max-width: 100%; }
     }
   </style>
 </head>
@@ -203,15 +104,13 @@
   <section class="hero-box">
     <h1>🎬 تیزرهای تبلیغاتی</h1>
     <p class="intro">
-      تیزر تبلیغاتی، ویترین هویت و اعتبار برند شماست. ما در
-      <span class="accent">استودیو ترنم اترک</span>
-      با درک دقیق نیاز بازار و روانشناسی مخاطب، ایده‌های شما را به تصاویر متحرک قدرتمند تبدیل می‌کنیم.
+      تیزر تبلیغاتی، ویترین هویت و اعتبار برند شماست. ما در <span class="accent">استودیو ترنم اترک</span> با درک دقیق نیاز بازار و روانشناسی مخاطب، ایده‌های شما را به تصاویر متحرک قدرتمند تبدیل می‌کنیم. هر تیزر برای ما یک پروژه هنری منحصربه‌فرد است که با استانداردهای روز دنیای ویدئو مارکتینگ طراحی و اجرا می‌شود.
     </p>
   </section>
 
-  <div class="section-title">تیزرهای تبلیغاتی افقی</div>
-  <section class="grid-horizontal">
-    <article class="card horizontal-card">
+  <section class="grid">
+    <!-- ویدیو اول (افقی) -->
+    <article class="card">
       <video controls>
         <source src="teaser/teaser1.mp4" type="video/mp4">
         مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
@@ -222,7 +121,8 @@
       </div>
     </article>
 
-    <article class="card horizontal-card">
+    <!-- ویدیو دوم (افقی) -->
+    <article class="card">
       <video controls>
         <source src="teaser/teaser2.mp4" type="video/mp4">
         مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
@@ -232,10 +132,8 @@
         <p>تولید محتوای حرفه‌ای و کاملاً اختصاصی</p>
       </div>
     </article>
-  </section>
 
-  <div class="section-title">محتوای عمودی و اینستاگرامی</div>
-  <section class="grid-vertical">
+    <!-- ویدیو سوم (عمودی - که در ردیف پایین وسط قرار می‌گیرد) -->
     <article class="card vertical-card">
       <video controls>
         <source src="teaser/Woman_talking.mp4" type="video/mp4">
