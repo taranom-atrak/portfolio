@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -43,7 +38,6 @@
     .intro { margin: 0; text-align: justify; line-height: 1.9; font-size: 1.05rem; color: #cbd5e1; }
     .accent { color: #f5d0fe; font-weight: 700; }
 
-    /* ظرف اصلی چیدمان دو ستونه */
     .grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -53,7 +47,6 @@
       align-items: start;
     }
     
-    /* استایل کلی کارت‌ها */
     .card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
@@ -74,20 +67,18 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    /* ۱. یکسان‌سازی ابعاد کادرهای بالایی (افقی) */
+    /* هماهنگ‌سازی ویدئوهای افقی */
     .card-horizontal video {
-      aspect-ratio: 16 / 9; /* هماهنگ کردن نسبت تصویر تمام ویدئوهای افقی */
-      object-fit: cover;    /* پر کردن کادر بدون دفرمه شدن ویدئو */
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
-    /* ۲. انتقال تیزر جدید به سمت چپ و پایین */
+    /* هماهنگ‌سازی ویدئوهای عمودی */
     .card-vertical {
-      grid-column: 2;       /* در گرید ۲ستونه، این کارت را به ستون دوم (سمت چپ در RTL) می‌برد */
-      max-width: 400px;     /* مهار کردن اندازه تیزر عمودی */
-      width: 100%;
+      max-width: 100%;
     }
     .card-vertical video {
-      aspect-ratio: 9 / 16; /* نسبت تصویر عمودی برای تیزر جدید */
+      aspect-ratio: 9 / 16;
       object-fit: cover;
     }
 
@@ -109,14 +100,8 @@
     }
     .btn-back:hover { background: #e9d5ff; color: #1e1b4b; transform: scale(1.05); }
 
-    /* بهینه سازی نمایش در موبایل */
     @media (max-width: 800px) {
-      .grid { grid-template-columns: 1fr; } /* تک‌ستونه شدن در موبایل */
-      .card-vertical { 
-        grid-column: 1; /* ریست کردن ستون برای موبایل */
-        max-width: 100%; 
-        margin: 0 auto;
-      }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -125,12 +110,12 @@
   <section class="hero-box">
     <h1>🎬 تیزرهای تبلیغاتی</h1>
     <p class="intro">
-      تیزر تبلیغاتی، ویترین هویت و اعتبار برند شماست. ما در <span class="accent">استودیو ترنم اترک</span> با درک دقیق نیاز بازار و روانشناسی مخاطب، ایده‌های شما را به تصاویر متحرک قدرتمند تبدیل می‌کنیم.از تولید محتوای شبکه‌های اجتماعی تا تیزرهای صنعتی و سازمانی، هدف ما خلق اثری است که در کوتاه‌ترین زمان، عمیق‌ترین تاثیر را بر ذهن مشتری بگذارد. هر تیزر برای ما یک پروژه هنری منحصربه‌فرد است که با استانداردهای روز دنیای ویدئو مارکتینگ طراحی و اجرا می‌شود..
+      تیزر تبلیغاتی، ویترین هویت و اعتبار برند شماست. ما در <span class="accent">استودیو ترنم اترک</span> با درک دقیق نیاز بازار و روانشناسی مخاطب، ایده‌های شما را به تصاویر متحرک قدرتمند تبدیل می‌کنیم. از تولید محتوای شبکه‌های اجتماعی تا تیزرهای صنعتی و سازمانی، هدف ما خلق اثری است که در کوتاه‌ترین زمان، عمیق‌ترین تاثیر را بر ذهن مشتری بگذارد. هر تیزر برای ما یک پروژه هنری منحصربه‌فرد است که با استانداردهای روز دنیای ویدئو مارکتینگ طراحی و اجرا می‌شود.
     </p>
   </section>
 
   <section class="grid">
-    <!-- ویدیو اول (افقی - کادر اول سمت راست) -->
+    <!-- تیزر ۱ (افقی) -->
     <article class="card card-horizontal">
       <video controls>
         <source src="teaser/teaser1.mp4" type="video/mp4">
@@ -142,7 +127,7 @@
       </div>
     </article>
 
-    <!-- ویدیو دوم (افقی - کادر دوم سمت چپ) -->
+    <!-- تیزر ۲ (افقی) -->
     <article class="card card-horizontal">
       <video controls>
         <source src="teaser/teaser2.mp4" type="video/mp4">
@@ -154,15 +139,27 @@
       </div>
     </article>
 
-    <!-- ویدیو سوم (عمودی - هدایت شده به زیر ویدیو دوم در سمت چپ) -->
+    <!-- محتوای اینستاگرامی ۱ (عمودی) -->
     <article class="card card-vertical">
       <video controls>
         <source src="teaser/Woman_talking.mp4" type="video/mp4">
         مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
       </video>
       <div class="video-info">
-        <h3>تولید محتوای اینستاگرامی</h3>
+        <h3>تولید محتوای اینستاگرامی ۱</h3>
         <p>اجرا و تدوین مخصوص شبکه‌های اجتماعی</p>
+      </div>
+    </article>
+
+    <!-- محتوای اینستاگرامی ۲ (عمودی - ویدئوی جدید) -->
+    <article class="card card-vertical">
+      <video controls>
+        <source src="teaser/Woman_talking2.mp4" type="video/mp4">
+        مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
+      </video>
+      <div class="video-info">
+        <h3>تولید محتوای اینستاگرامی ۲</h3>
+        <p>ایده‌پردازی و سناریو نویسی خلاقانه</p>
       </div>
     </article>
   </section>
